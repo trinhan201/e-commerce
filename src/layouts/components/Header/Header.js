@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import { Link } from 'react-router-dom';
@@ -10,15 +10,6 @@ import { faMoon } from '@fortawesome/free-regular-svg-icons';
 const cx = classNames.bind(styles);
 function Header() {
     const [toggleNav, setToggleNav] = useState(false);
-
-    useEffect(() => {
-        const navList = document.getElementById('nav-list-dropdown');
-        if (toggleNav) {
-            navList.style.display = 'block';
-        } else {
-            navList.style.display = 'none';
-        }
-    }, [toggleNav]);
 
     return (
         <div className={cx('wrapper')}>
@@ -84,28 +75,30 @@ function Header() {
                             </span>
                         </div>
                     </div>
-                    <ul id="nav-list-dropdown" className={cx('nav-list-dropdown', 'mt-15')}>
-                        <li className={cx('nav-item')}>
-                            <Link className={cx('nav-link')} to="/">
-                                Home
-                            </Link>
-                        </li>
-                        <li className={cx('nav-item')}>
-                            <Link className={cx('nav-link')} to="/product">
-                                Product
-                            </Link>
-                        </li>
-                        <li className={cx('nav-item')}>
-                            <Link className={cx('nav-link')} to="/about">
-                                About
-                            </Link>
-                        </li>
-                        <li className={cx('nav-item')}>
-                            <Link className={cx('nav-link')} to="/contact">
-                                Contact
-                            </Link>
-                        </li>
-                    </ul>
+                    {toggleNav && (
+                        <ul id="nav-list-dropdown" className={cx('nav-list-dropdown', 'mt-15')}>
+                            <li className={cx('nav-item')}>
+                                <Link className={cx('nav-link')} to="/">
+                                    Home
+                                </Link>
+                            </li>
+                            <li className={cx('nav-item')}>
+                                <Link className={cx('nav-link')} to="/product">
+                                    Product
+                                </Link>
+                            </li>
+                            <li className={cx('nav-item')}>
+                                <Link className={cx('nav-link')} to="/about">
+                                    About
+                                </Link>
+                            </li>
+                            <li className={cx('nav-item')}>
+                                <Link className={cx('nav-link')} to="/contact">
+                                    Contact
+                                </Link>
+                            </li>
+                        </ul>
+                    )}
                 </div>
             </div>
         </div>
