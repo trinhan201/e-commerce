@@ -3,6 +3,9 @@ import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import { Link } from 'react-router-dom';
 import config from '~/config';
+
+import ModalForm from '~/components/Form/ModalForm';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBagShopping, faBars, faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons';
 import { faMoon } from '@fortawesome/free-regular-svg-icons';
@@ -10,12 +13,14 @@ import { faMoon } from '@fortawesome/free-regular-svg-icons';
 const cx = classNames.bind(styles);
 function Header() {
     const [toggleNav, setToggleNav] = useState(false);
+    const [modalShow, setModalShow] = useState(false);
+    console.log(modalShow);
 
     return (
-        <div className={cx('wrapper')}>
+        <>
             <div className={cx('top-header')}>
                 <div className={cx('container', 'header-container')}>
-                    <div className={cx('login-btn')}>
+                    <div className={cx('login-btn')} onClick={() => setModalShow(!modalShow)}>
                         <span>
                             <FontAwesomeIcon icon={faUser} />
                         </span>
@@ -101,7 +106,8 @@ function Header() {
                     )}
                 </div>
             </div>
-        </div>
+            {modalShow && <ModalForm setModalShow={setModalShow} />}
+        </>
     );
 }
 

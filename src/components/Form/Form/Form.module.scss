@@ -1,0 +1,30 @@
+@import '../../GlobalStyles/mixin.scss';
+
+form {
+    margin-top: 42px;
+}
+
+.form-input {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 1em;
+    font-size: 1.6rem;
+    background-color: #f4f4f4;
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+    outline: none;
+}
+
+.submit-btn {
+    margin-top: 2em;
+
+    @include Responsive(mobile) {
+        min-width: 180px !important;
+    }
+}
+
+.non-active {
+    background-color: #ffffff !important;
+    color: #233b95 !important;
+}
