@@ -1,0 +1,66 @@
+@import '../../../components/GlobalStyles/mixin.scss';
+
+.newsletter {
+    background-color: var(--primary);
+}
+
+.newsletter-content {
+    display: flex;
+    align-items: center;
+    padding: 48px 0;
+
+    @include Responsive(mobile) {
+        flex-direction: column;
+    }
+}
+
+.newsletter-text {
+    flex: 1;
+    color: #ffffff;
+
+    p {
+        font-size: 1.4rem;
+        font-weight: 300;
+    }
+
+    @include Responsive(mobile) {
+        text-align: center;
+    }
+}
+
+.newsletter-form {
+    display: flex;
+    flex: 1;
+    .newsletter-input,
+    .newsletter-submit {
+        font-size: 1.6rem;
+        padding: 15px;
+        border: none;
+    }
+
+    @include Responsive(mobile) {
+        margin-top: 16px;
+    }
+}
+
+.newsletter-input {
+    display: block;
+    width: 70%;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    outline: none;
+}
+.newsletter-submit {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.footer {
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+}
