@@ -142,6 +142,7 @@
     &:hover {
         border-bottom: 1px solid rgba($color: #ffffff, $alpha: 0.62);
         border-radius: 4px;
+        transition: 0.5s all;
     }
 }
 
@@ -197,6 +198,10 @@
         color: #ed174a;
         border-bottom: 1px solid rgba($color: #ed174a, $alpha: 0.62);
         border-radius: 4px;
+    }
+
+    @include Responsive(pc) {
+        display: none;
     }
 }
 

@@ -58,9 +58,131 @@
 .footer {
     width: 100%;
     background-color: #ffffff;
+    padding-top: 48px;
 }
 
-.info {
+.footer-info {
     display: flex;
     justify-content: space-between;
+    padding: 24px 0 48px 0;
+
+    @include Responsive(mobile) {
+        flex-direction: column;
+    }
+
+    @include Responsive(tablet) {
+        flex-direction: column;
+    }
+}
+
+.left-side,
+.right-side {
+    display: flex;
+    flex: 1;
+
+    @include Responsive(mobile) {
+        flex-direction: column;
+    }
+}
+
+.info-content {
+    flex: 1;
+}
+
+.info-title {
+    h2 {
+        font-weight: 400;
+    }
+}
+
+.info-title::after {
+    display: block;
+    content: '';
+    border-bottom: 2px solid var(--primary);
+    width: 58px;
+}
+
+.info-contact-list,
+.info-link-list {
+    margin-top: 48px;
+
+    li {
+        margin-bottom: 12px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        span,
+        a {
+            margin-left: 8px;
+            font-size: 1.5rem;
+        }
+
+        a {
+            &:hover {
+                color: var(--primary);
+                transition: 0.5s all;
+            }
+        }
+    }
+}
+
+.contact-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #edeff7;
+    border-radius: 50%;
+    color: var(--primary);
+}
+
+.link-icon {
+    font-size: 1.2rem;
+}
+
+.social-content {
+    margin-top: 40px;
+
+    h3 {
+        color: var(--primary);
+    }
+}
+
+.social-list {
+    display: flex;
+    margin-top: 8px;
+    margin-left: -4px;
+}
+
+.social-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #ebebeb;
+    margin: 0 4px;
+    transition: 0.5s all;
+
+    &:hover {
+        background-color: var(--primary);
+    }
+
+    &:hover a {
+        color: #ffffff;
+        transition: 0.5s all;
+    }
+}
+
+.footer-copyright {
+    padding: 32px 0;
+    border-top: 1px solid #eeeeee;
+
+    p {
+        text-align: center;
+        font-size: 1.5rem;
+    }
 }

@@ -70,7 +70,7 @@ function Header() {
                                     className={activeNavLink === 'product' ? cx('nav-link', 'active') : cx('nav-link')}
                                     to="/product"
                                 >
-                                    Product
+                                    Products
                                 </Link>
                             </li>
                             <li className={cx('nav-item')} onClick={() => onUpdateActiveNavLink('about')}>
@@ -78,7 +78,7 @@ function Header() {
                                     className={activeNavLink === 'about' ? cx('nav-link', 'active') : cx('nav-link')}
                                     to="/about"
                                 >
-                                    About
+                                    About Us
                                 </Link>
                             </li>
                             <li className={cx('nav-item')} onClick={() => onUpdateActiveNavLink('contact')}>
@@ -86,7 +86,7 @@ function Header() {
                                     className={activeNavLink === 'contact' ? cx('nav-link', 'active') : cx('nav-link')}
                                     to="/contact"
                                 >
-                                    Contact
+                                    Contact Us
                                 </Link>
                             </li>
                         </ul>
@@ -115,7 +115,7 @@ function Header() {
                                     }
                                     to="/product"
                                 >
-                                    Product
+                                    Products
                                 </Link>
                             </li>
                             <li className={cx('nav-item')} onClick={() => onUpdateActiveNavLink('about')}>
@@ -125,7 +125,7 @@ function Header() {
                                     }
                                     to="/about"
                                 >
-                                    About
+                                    About Us
                                 </Link>
                             </li>
                             <li className={cx('nav-item')} onClick={() => onUpdateActiveNavLink('contact')}>
@@ -135,7 +135,7 @@ function Header() {
                                     }
                                     to="/contact"
                                 >
-                                    Contact
+                                    Contact Us
                                 </Link>
                             </li>
                         </ul>

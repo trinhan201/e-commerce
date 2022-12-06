@@ -4,7 +4,14 @@ import styles from './Footer.module.scss';
 import Button from '~/components/Button';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import {
+    faAngleRight,
+    faEnvelopeOpenText,
+    faLocationDot,
+    faMobile,
+    faPaperPlane,
+} from '@fortawesome/free-solid-svg-icons';
+import { faFacebook, faGooglePlusG, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 const cx = classNames.bind(styles);
 function Footer() {
@@ -28,27 +35,160 @@ function Footer() {
             </div>
             <div className={cx('footer')}>
                 <div className={cx('container')}>
-                    <div className={cx('info')}>
-                        <div className={cx('info-content')}>
-                            <div className="title">
-                                <h1>CONTACT</h1>
+                    <div className={cx('footer-info')}>
+                        <div className={cx('left-side')}>
+                            <div className={cx('info-content')}>
+                                <div className={cx('info-title')}>
+                                    <h2>CONTACT</h2>
+                                </div>
+                                <ul className={cx('info-contact-list')}>
+                                    <li>
+                                        <div className={cx('contact-icon')}>
+                                            <FontAwesomeIcon icon={faLocationDot} />
+                                        </div>
+                                        <span>District 5, Ho Chi Minh</span>
+                                    </li>
+                                    <li>
+                                        <div className={cx('contact-icon')}>
+                                            <FontAwesomeIcon icon={faEnvelopeOpenText} />
+                                        </div>
+                                        <a href="mailto:pashop123@gmail.com">pashop123@gmail.com</a>
+                                    </li>
+                                    <li>
+                                        <div className={cx('contact-icon')}>
+                                            <FontAwesomeIcon icon={faMobile} />
+                                        </div>
+                                        <a href="tel:+84393784963">+84393784963</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div className={cx('info-content')}>
+                                <div className={cx('info-title')}>
+                                    <h2>INFOMATION</h2>
+                                </div>
+                                <ul className={cx('info-link-list')}>
+                                    <li>
+                                        <div className={cx('link-icon')}>
+                                            <FontAwesomeIcon icon={faAngleRight} />
+                                        </div>
+                                        <a href="!#">About Us</a>
+                                    </li>
+                                    <li>
+                                        <div className={cx('link-icon')}>
+                                            <FontAwesomeIcon icon={faAngleRight} />
+                                        </div>
+                                        <a href="!#">Contact Us</a>
+                                    </li>
+                                    <li>
+                                        <div className={cx('link-icon')}>
+                                            <FontAwesomeIcon icon={faAngleRight} />
+                                        </div>
+                                        <a href="!#">Shortcodes</a>
+                                    </li>
+                                    <li>
+                                        <div className={cx('link-icon')}>
+                                            <FontAwesomeIcon icon={faAngleRight} />
+                                        </div>
+                                        <a href="!#">FAQ's</a>
+                                    </li>
+                                    <li>
+                                        <div className={cx('link-icon')}>
+                                            <FontAwesomeIcon icon={faAngleRight} />
+                                        </div>
+                                        <a href="!#">Special Products</a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <div className={cx('info-content')}>
-                            <div className="title">
-                                <h1>INFOMATION</h1>
+
+                        <div className={cx('right-side')}>
+                            <div className={cx('info-content')}>
+                                <div className={cx('info-title')}>
+                                    <h2>CATEGORY</h2>
+                                </div>
+                                <ul className={cx('info-link-list')}>
+                                    <li>
+                                        <div className={cx('link-icon')}>
+                                            <FontAwesomeIcon icon={faAngleRight} />
+                                        </div>
+                                        <a href="!#">Smartphone</a>
+                                    </li>
+                                    <li>
+                                        <div className={cx('link-icon')}>
+                                            <FontAwesomeIcon icon={faAngleRight} />
+                                        </div>
+                                        <a href="!#">Laptop</a>
+                                    </li>
+                                    <li>
+                                        <div className={cx('link-icon')}>
+                                            <FontAwesomeIcon icon={faAngleRight} />
+                                        </div>
+                                        <a href="!#">Tablet</a>
+                                    </li>
+                                    <li>
+                                        <div className={cx('link-icon')}>
+                                            <FontAwesomeIcon icon={faAngleRight} />
+                                        </div>
+                                        <a href="!#">Smartwatch</a>
+                                    </li>
+                                    <li>
+                                        <div className={cx('link-icon')}>
+                                            <FontAwesomeIcon icon={faAngleRight} />
+                                        </div>
+                                        <a href="!#">PC, Printer</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div className={cx('info-content')}>
+                                <div className={cx('info-title')}>
+                                    <h2>PROFILE</h2>
+                                </div>
+                                <ul className={cx('info-link-list')}>
+                                    <li>
+                                        <div className={cx('link-icon')}>
+                                            <FontAwesomeIcon icon={faAngleRight} />
+                                        </div>
+                                        <a href="!#">Home</a>
+                                    </li>
+                                    <li>
+                                        <div className={cx('link-icon')}>
+                                            <FontAwesomeIcon icon={faAngleRight} />
+                                        </div>
+                                        <a href="!#">Today's Deals</a>
+                                    </li>
+                                </ul>
+                                <div className={cx('social-content')}>
+                                    <h3>Follow Us</h3>
+                                    <div className={cx('social-list')}>
+                                        <div className={cx('social-item')}>
+                                            <a href="!#">
+                                                <FontAwesomeIcon icon={faFacebook} />
+                                            </a>
+                                        </div>
+                                        <div className={cx('social-item')}>
+                                            <a href="!#">
+                                                <FontAwesomeIcon icon={faTwitter} />
+                                            </a>
+                                        </div>
+                                        <div className={cx('social-item')}>
+                                            <a href="!#">
+                                                <FontAwesomeIcon icon={faGooglePlusG} />
+                                            </a>
+                                        </div>
+                                        <div className={cx('social-item')}>
+                                            <a href="!#">
+                                                <FontAwesomeIcon icon={faInstagram} />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div className={cx('info-content')}>
-                            <div className="title">
-                                <h1>CATEGORY</h1>
-                            </div>
-                        </div>
-                        <div className={cx('info-content')}>
-                            <div className="title">
-                                <h1>PROFILE</h1>
-                            </div>
-                        </div>
+                    </div>
+                    <div className={cx('footer-copyright')}>
+                        <p>© 2022 PA Shop. All rights reserved. Design by An Trinh</p>
                     </div>
                 </div>
             </div>
