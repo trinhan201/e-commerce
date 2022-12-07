@@ -51,6 +51,8 @@
     outline: none;
 }
 .newsletter-submit {
+    border-top-left-radius: unset;
+    border-bottom-left-radius: unset;
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
 }

@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import { Link } from 'react-router-dom';
 import config from '~/config';
 
 import ModalForm from '~/components/Form/ModalForm';
+import Search from '~/components/Search';
+// import Cart from '~/components/Cart';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBagShopping, faBars, faMagnifyingGlass, faUser, faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -13,18 +15,45 @@ import { faMoon } from '@fortawesome/free-regular-svg-icons';
 const cx = classNames.bind(styles);
 function Header() {
     const [toggleNav, setToggleNav] = useState(false);
-    const [modalShow, setModalShow] = useState(false);
+    const [modalShowForm, setModalShowForm] = useState(false);
+    const [modalShowSearch, setModalShowSearch] = useState(false);
+    const [showCart, setShowCart] = useState(false);
     const [activeNavLink, setActiveNavLink] = useState('home');
+    const [scrolled, setScrolled] = useState(false);
 
     const onUpdateActiveNavLink = (value) => {
         setActiveNavLink(value);
     };
 
+    useEffect(() => {
+        modalShowForm && (document.body.style.overflow = 'hidden');
+        !modalShowForm && (document.body.style.overflow = 'unset');
+    }, [modalShowForm]);
+
+    useEffect(() => {
+        toggleNav && (document.body.style.overflow = 'hidden');
+        !toggleNav && (document.body.style.overflow = 'unset');
+    }, [toggleNav]);
+
+    useEffect(() => {
+        const scrollPage = () => {
+            const windowHeight = window.scrollY;
+            if (windowHeight >= 80) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+        window.addEventListener('scroll', scrollPage);
+
+        return () => window.removeEventListener('scroll', scrollPage);
+    }, []);
+
     return (
         <>
             <div className={cx('top-header')}>
                 <div className={cx('container', 'header-container')}>
-                    <div className={cx('login-btn')} onClick={() => setModalShow(!modalShow)}>
+                    <div className={cx('login-btn')} onClick={() => setModalShowForm(!modalShowForm)}>
                         <span>
                             <FontAwesomeIcon icon={faUser} />
                         </span>
@@ -36,19 +65,27 @@ function Header() {
                             </Link>
                         </h1>
                     </div>
-                    <div className={cx('search-btn')}>
+                    <div className={cx('search-btn')} onClick={() => setModalShowSearch(!modalShowSearch)}>
                         <span>
                             <FontAwesomeIcon icon={faMagnifyingGlass} />
                         </span>
                     </div>
-                    <div className={cx('cart-btn')}>
+                    <div className={cx('cart-btn')} onClick={() => setShowCart(!showCart)}>
                         <span>
                             <FontAwesomeIcon icon={faBagShopping} />
                         </span>
                     </div>
+                    {showCart && (
+                        <div className={cx('cart-container')}>
+                            <div className={cx('close-cart-btn')} onClick={() => setShowCart(!showCart)}>
+                                <FontAwesomeIcon icon={faXmark} />
+                            </div>
+                            <p>Your shopping cart is empty</p>
+                        </div>
+                    )}
                 </div>
             </div>
-            <div className={cx('nav-bar')}>
+            <div className={scrolled ? cx('nav-bar', 'nav-bar-effect') : cx('nav-bar')}>
                 <div className={cx('container', 'mt-15', 'mb-15')}>
                     <div className={cx('nav-container')}>
                         <div className={cx('nav-dropdown')} onClick={() => setToggleNav(!toggleNav)}>
@@ -90,7 +127,7 @@ function Header() {
                                 </Link>
                             </li>
                         </ul>
-                        <div className={cx('dark-mode')}>
+                        <div className={scrolled ? cx('dark-mode', 'dark-mode-color') : cx('dark-mode')}>
                             <span>
                                 <FontAwesomeIcon icon={faMoon} />
                             </span>
@@ -142,7 +179,8 @@ function Header() {
                     )}
                 </div>
             </div>
-            {modalShow && <ModalForm setModalShow={setModalShow} />}
+            {modalShowForm && <ModalForm setModalShowForm={setModalShowForm} />}
+            {modalShowSearch && <Search setModalShowSearch={setModalShowSearch} />}
         </>
     );
 }

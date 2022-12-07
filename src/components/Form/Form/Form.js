@@ -13,8 +13,6 @@ function Form() {
         setActiveBtn(value);
     };
 
-    console.log(activeBtn);
-
     return (
         <>
             <Button
