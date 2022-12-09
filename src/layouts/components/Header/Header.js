@@ -17,7 +17,6 @@ function Header() {
     const [toggleNav, setToggleNav] = useState(false);
     const [modalShowForm, setModalShowForm] = useState(false);
     const [modalShowSearch, setModalShowSearch] = useState(false);
-    const [showCart, setShowCart] = useState(false);
     const [activeNavLink, setActiveNavLink] = useState('home');
     const [scrolled, setScrolled] = useState(false);
 
@@ -70,19 +69,11 @@ function Header() {
                             <FontAwesomeIcon icon={faMagnifyingGlass} />
                         </span>
                     </div>
-                    <div className={cx('cart-btn')} onClick={() => setShowCart(!showCart)}>
-                        <span>
+                    <div className={cx('cart-btn')}>
+                        <Link to="/cart">
                             <FontAwesomeIcon icon={faBagShopping} />
-                        </span>
+                        </Link>
                     </div>
-                    {showCart && (
-                        <div className={cx('cart-container')}>
-                            <div className={cx('close-cart-btn')} onClick={() => setShowCart(!showCart)}>
-                                <FontAwesomeIcon icon={faXmark} />
-                            </div>
-                            <p>Your shopping cart is empty</p>
-                        </div>
-                    )}
                 </div>
             </div>
             <div className={scrolled ? cx('nav-bar', 'nav-bar-effect') : cx('nav-bar')}>
@@ -94,32 +85,36 @@ function Header() {
                             </span>
                         </div>
                         <ul className={cx('nav-list')}>
-                            <li className={cx('nav-item')} onClick={() => onUpdateActiveNavLink('home')}>
+                            <li className={cx('nav-item')}>
                                 <Link
+                                    onClick={() => onUpdateActiveNavLink('home')}
                                     className={activeNavLink === 'home' ? cx('nav-link', 'active') : cx('nav-link')}
                                     to="/"
                                 >
                                     Home
                                 </Link>
                             </li>
-                            <li className={cx('nav-item')} onClick={() => onUpdateActiveNavLink('product')}>
+                            <li className={cx('nav-item')}>
                                 <Link
+                                    onClick={() => onUpdateActiveNavLink('product')}
                                     className={activeNavLink === 'product' ? cx('nav-link', 'active') : cx('nav-link')}
                                     to="/product"
                                 >
                                     Products
                                 </Link>
                             </li>
-                            <li className={cx('nav-item')} onClick={() => onUpdateActiveNavLink('about')}>
+                            <li className={cx('nav-item')}>
                                 <Link
+                                    onClick={() => onUpdateActiveNavLink('about')}
                                     className={activeNavLink === 'about' ? cx('nav-link', 'active') : cx('nav-link')}
                                     to="/about"
                                 >
                                     About Us
                                 </Link>
                             </li>
-                            <li className={cx('nav-item')} onClick={() => onUpdateActiveNavLink('contact')}>
+                            <li className={cx('nav-item')}>
                                 <Link
+                                    onClick={() => onUpdateActiveNavLink('contact')}
                                     className={activeNavLink === 'contact' ? cx('nav-link', 'active') : cx('nav-link')}
                                     to="/contact"
                                 >
@@ -135,8 +130,9 @@ function Header() {
                     </div>
                     {toggleNav && (
                         <ul id="nav-list-dropdown" className={cx('nav-list-dropdown', 'mt-15')}>
-                            <li className={cx('nav-item')} onClick={() => onUpdateActiveNavLink('home')}>
+                            <li className={cx('nav-item')}>
                                 <Link
+                                    onClick={() => onUpdateActiveNavLink('home')}
                                     className={
                                         activeNavLink === 'home' ? cx('nav-link', 'active-dropdown') : cx('nav-link')
                                     }
@@ -145,8 +141,9 @@ function Header() {
                                     Home
                                 </Link>
                             </li>
-                            <li className={cx('nav-item')} onClick={() => onUpdateActiveNavLink('product')}>
+                            <li className={cx('nav-item')}>
                                 <Link
+                                    onClick={() => onUpdateActiveNavLink('product')}
                                     className={
                                         activeNavLink === 'product' ? cx('nav-link', 'active-dropdown') : cx('nav-link')
                                     }
@@ -155,8 +152,9 @@ function Header() {
                                     Products
                                 </Link>
                             </li>
-                            <li className={cx('nav-item')} onClick={() => onUpdateActiveNavLink('about')}>
+                            <li className={cx('nav-item')}>
                                 <Link
+                                    onClick={() => onUpdateActiveNavLink('about')}
                                     className={
                                         activeNavLink === 'about' ? cx('nav-link', 'active-dropdown') : cx('nav-link')
                                     }
@@ -165,8 +163,9 @@ function Header() {
                                     About Us
                                 </Link>
                             </li>
-                            <li className={cx('nav-item')} onClick={() => onUpdateActiveNavLink('contact')}>
+                            <li className={cx('nav-item')}>
                                 <Link
+                                    onClick={() => onUpdateActiveNavLink('contact')}
                                     className={
                                         activeNavLink === 'contact' ? cx('nav-link', 'active-dropdown') : cx('nav-link')
                                     }

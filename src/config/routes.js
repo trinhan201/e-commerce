@@ -3,6 +3,7 @@ const routes = {
     product: '/product',
     about: '/about',
     contact: '/contact',
+    cart: '/cart',
 };
 
 export default routes;
