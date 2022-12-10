@@ -70,7 +70,7 @@ function Header() {
                         </span>
                     </div>
                     <div className={cx('cart-btn')}>
-                        <Link to="/cart">
+                        <Link to="/cart" onClick={() => onUpdateActiveNavLink('')}>
                             <FontAwesomeIcon icon={faBagShopping} />
                         </Link>
                     </div>
