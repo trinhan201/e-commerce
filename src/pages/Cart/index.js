@@ -11,6 +11,12 @@ function Cart() {
         <div className={cx('container')}>
             <div className={cx('cart-container')}>
                 <div className={cx('cart-list')}>
+                    <div className={cx('cart-item-header')}>
+                        <div className={cx('item-name-heading')}>Product</div>
+                        <div className={cx('item-price-heading')}>Price</div>
+                        <div className={cx('item-qty-heading')}>Quantity</div>
+                        <div className={cx('item-total-heading')}>Total</div>
+                    </div>
                     <div className={cx('cart-item')}>
                         <div className={cx('section-1')}>
                             <div className={cx('item-img')}>

@@ -82,12 +82,14 @@
 }
 
 .cart-btn {
+    display: flex;
     background-color: #fef1f4;
     border: none;
 
     a {
         color: var(--secondary);
         padding: 12px;
+        line-height: 0;
         margin: auto;
     }
 }
