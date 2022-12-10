@@ -4,12 +4,22 @@ import styles from './Cart.module.scss';
 import Button from '~/components/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { shoppingCart } from '~/assets/img';
 
 const cx = classNames.bind(styles);
 function Cart() {
     return (
         <div className={cx('container')}>
-            <div className={cx('cart-container')}>
+            <div className={cx('cart-empty-container')}>
+                <div className={cx('cart-empty')}>
+                    <div className={cx('empty-img')}>
+                        <img src={shoppingCart} alt="" />
+                    </div>
+                    <p className={cx('cart-empty-text')}>Your shopping cart is empty</p>
+                    <Button primary>SHOP NOW !!!</Button>
+                </div>
+            </div>
+            {/* <div className={cx('cart-container')}>
                 <div className={cx('cart-list')}>
                     <div className={cx('cart-item-header')}>
                         <div className={cx('item-name-heading')}>Product</div>
@@ -96,7 +106,7 @@ function Cart() {
                         <Button primary>SHOP MORE</Button>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 }
