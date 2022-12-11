@@ -89,6 +89,10 @@
 
 .info-content {
     flex: 1;
+
+    @include Responsive(mobile) {
+        margin-bottom: 24px;
+    }
 }
 
 .info-title {
@@ -126,6 +130,10 @@
                 transition: 0.5s all;
             }
         }
+    }
+
+    @include Responsive(mobile) {
+        margin-top: 36px;
     }
 }
 

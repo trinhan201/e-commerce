@@ -1,0 +1,118 @@
+@import '../../components/GlobalStyles/mixin.scss';
+
+.contact-banner {
+    position: relative;
+    padding-top: 50%;
+    z-index: -1;
+    // background-image: url('https://gartman.com/wp-content/uploads/2020/06/baseline-payroll-contact-us-banner.jpg');
+    background-image: url('../../assets/img/contact-banner.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contact-field {
+    display: flex;
+    padding: 72px 0;
+
+    @include Responsive(mobile) {
+        flex-direction: column;
+    }
+}
+
+.contact-info {
+    flex: 1;
+    padding-right: 48px;
+
+    @include Responsive(mobile) {
+        padding-right: 0;
+    }
+}
+
+.contact-info-title {
+    font-size: 2.8rem;
+}
+
+.contact-info-desc {
+    font-size: 1.8rem;
+    line-height: 1.8;
+    margin-top: 24px;
+}
+
+.contact-info-list {
+    padding: 36px 0;
+}
+
+.contact-info-item {
+    display: flex;
+    align-items: center;
+
+    a:hover {
+        color: var(--secondary);
+        transition: 0.5s all;
+    }
+}
+
+.contact-info-icon {
+    display: flex;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    font-size: 2rem;
+    color: var(--secondary);
+}
+
+.contact-social-list {
+    display: flex;
+    margin-top: 8px;
+    margin-left: -4px;
+}
+
+.contact-social-item {
+    width: 35px;
+    height: 35px;
+    font-size: 2.2rem;
+    margin: 0 4px;
+
+    &:hover a {
+        color: var(--secondary);
+        transition: 0.5s all;
+    }
+}
+
+.contact-form {
+    flex: 1;
+
+    form {
+        margin-top: 0;
+    }
+    textarea,
+    input {
+        display: block;
+        width: 100%;
+        font-size: 1.5rem;
+        background-color: #fafafb;
+        padding: 16px;
+        margin-bottom: 12px;
+        border-radius: 8px;
+        border: 2px solid #eeeeee;
+        outline: none;
+    }
+
+    @include Responsive(mobile) {
+        margin-top: 24px;
+    }
+}
+
+.contact-submit-btn {
+    font-weight: 700 !important;
+    padding: 12px 34px 14px !important;
+    margin-top: 12px;
+    border-radius: 8px !important;
+}
+
+.contact-map {
+    iframe {
+        width: 100%;
+    }
+}

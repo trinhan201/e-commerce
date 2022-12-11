@@ -103,6 +103,7 @@
     background-color: var(--primary);
     border-color: rgba($color: #ffffff, $alpha: 0.62);
     transition: 0.5s all;
+    z-index: 999;
 
     @include Responsive(tablet) {
         min-height: 68px;
