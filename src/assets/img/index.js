@@ -1,3 +1,4 @@
 import shoppingCart from './shopping-cart.png';
+import about from './about.png';
 
-export { shoppingCart };
+export { shoppingCart, about };
