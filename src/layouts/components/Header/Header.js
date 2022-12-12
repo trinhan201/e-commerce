@@ -58,11 +58,9 @@ function Header() {
                         </span>
                     </div>
                     <div className={cx('logo')}>
-                        <h1>
-                            <Link to={config.routes.home}>
-                                PA Shop<span>Shop what you wanted</span>
-                            </Link>
-                        </h1>
+                        <Link to={config.routes.home}>
+                            AN<span>ONYMOUS</span>
+                        </Link>
                     </div>
                     <div className={cx('search-btn')} onClick={() => setModalShowSearch(!modalShowSearch)}>
                         <span>
