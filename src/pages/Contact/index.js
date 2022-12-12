@@ -12,6 +12,9 @@ function Contact() {
     return (
         <>
             <div className={cx('contact-banner')}></div>
+            <div className={cx('page-path')}>
+                <a href="/">Home</a> <span>{'>'}</span> Contact Us
+            </div>
             <div className={cx('container')}>
                 <div className={cx('contact-field')}>
                     <div className={cx('contact-info')}>

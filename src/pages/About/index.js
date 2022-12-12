@@ -12,6 +12,9 @@ function About() {
         <>
             <div className={cx('about-wrapper')}></div>
             <div className={cx('about-banner')}></div>
+            <div className={cx('page-path')}>
+                <a href="/">Home</a> <span>{'>'}</span> About Us
+            </div>
             <div className={cx('about-shop-wrapper')}>
                 <div className={cx('container')}>
                     <div className={cx('about-shop-field')}>
