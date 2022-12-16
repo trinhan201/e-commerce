@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import config from '~/config';
 
 import ModalForm from '~/components/Form/ModalForm';
 import Search from '~/components/Search';
-// import Cart from '~/components/Cart';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBagShopping, faBars, faMagnifyingGlass, faUser, faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -17,12 +16,7 @@ function Header() {
     const [toggleNav, setToggleNav] = useState(false);
     const [modalShowForm, setModalShowForm] = useState(false);
     const [modalShowSearch, setModalShowSearch] = useState(false);
-    const [activeNavLink, setActiveNavLink] = useState('home');
     const [scrolled, setScrolled] = useState(false);
-
-    const onUpdateActiveNavLink = (value) => {
-        setActiveNavLink(value);
-    };
 
     useEffect(() => {
         modalShowForm && (document.body.style.overflow = 'hidden');
@@ -58,9 +52,9 @@ function Header() {
                         </span>
                     </div>
                     <div className={cx('logo')}>
-                        <Link to={config.routes.home}>
+                        <NavLink to={config.routes.home}>
                             AN<span>ONYMOUS</span>
-                        </Link>
+                        </NavLink>
                     </div>
                     <div className={cx('search-btn')} onClick={() => setModalShowSearch(!modalShowSearch)}>
                         <span>
@@ -68,9 +62,9 @@ function Header() {
                         </span>
                     </div>
                     <div className={cx('cart-btn')}>
-                        <Link to="/cart" onClick={() => onUpdateActiveNavLink('')}>
+                        <NavLink to={config.routes.cart}>
                             <FontAwesomeIcon icon={faBagShopping} />
-                        </Link>
+                        </NavLink>
                     </div>
                 </div>
             </div>
@@ -84,40 +78,36 @@ function Header() {
                         </div>
                         <ul className={cx('nav-list')}>
                             <li className={cx('nav-item')}>
-                                <Link
-                                    onClick={() => onUpdateActiveNavLink('home')}
-                                    className={activeNavLink === 'home' ? cx('nav-link', 'active') : cx('nav-link')}
-                                    to="/"
+                                <NavLink
+                                    className={({ isActive }) => (isActive ? cx('nav-link', 'active') : cx('nav-link'))}
+                                    to={config.routes.home}
                                 >
                                     Home
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className={cx('nav-item')}>
-                                <Link
-                                    onClick={() => onUpdateActiveNavLink('product')}
-                                    className={activeNavLink === 'product' ? cx('nav-link', 'active') : cx('nav-link')}
-                                    to="/product"
+                                <NavLink
+                                    className={({ isActive }) => (isActive ? cx('nav-link', 'active') : cx('nav-link'))}
+                                    to={config.routes.product}
                                 >
                                     Products
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className={cx('nav-item')}>
-                                <Link
-                                    onClick={() => onUpdateActiveNavLink('about')}
-                                    className={activeNavLink === 'about' ? cx('nav-link', 'active') : cx('nav-link')}
-                                    to="/about"
+                                <NavLink
+                                    className={({ isActive }) => (isActive ? cx('nav-link', 'active') : cx('nav-link'))}
+                                    to={config.routes.about}
                                 >
                                     About Us
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className={cx('nav-item')}>
-                                <Link
-                                    onClick={() => onUpdateActiveNavLink('contact')}
-                                    className={activeNavLink === 'contact' ? cx('nav-link', 'active') : cx('nav-link')}
-                                    to="/contact"
+                                <NavLink
+                                    className={({ isActive }) => (isActive ? cx('nav-link', 'active') : cx('nav-link'))}
+                                    to={config.routes.contact}
                                 >
                                     Contact Us
-                                </Link>
+                                </NavLink>
                             </li>
                         </ul>
                         <div className={scrolled ? cx('dark-mode', 'dark-mode-color') : cx('dark-mode')}>
@@ -129,48 +119,44 @@ function Header() {
                     {toggleNav && (
                         <ul id="nav-list-dropdown" className={cx('nav-list-dropdown', 'mt-15')}>
                             <li className={cx('nav-item')}>
-                                <Link
-                                    onClick={() => onUpdateActiveNavLink('home')}
-                                    className={
-                                        activeNavLink === 'home' ? cx('nav-link', 'active-dropdown') : cx('nav-link')
+                                <NavLink
+                                    className={({ isActive }) =>
+                                        isActive ? cx('nav-link', 'active-dropdown') : cx('nav-link')
                                     }
-                                    to="/"
+                                    to={config.routes.home}
                                 >
                                     Home
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className={cx('nav-item')}>
-                                <Link
-                                    onClick={() => onUpdateActiveNavLink('product')}
-                                    className={
-                                        activeNavLink === 'product' ? cx('nav-link', 'active-dropdown') : cx('nav-link')
+                                <NavLink
+                                    className={({ isActive }) =>
+                                        isActive ? cx('nav-link', 'active-dropdown') : cx('nav-link')
                                     }
-                                    to="/product"
+                                    to={config.routes.product}
                                 >
                                     Products
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className={cx('nav-item')}>
-                                <Link
-                                    onClick={() => onUpdateActiveNavLink('about')}
-                                    className={
-                                        activeNavLink === 'about' ? cx('nav-link', 'active-dropdown') : cx('nav-link')
+                                <NavLink
+                                    className={({ isActive }) =>
+                                        isActive ? cx('nav-link', 'active-dropdown') : cx('nav-link')
                                     }
-                                    to="/about"
+                                    to={config.routes.about}
                                 >
                                     About Us
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className={cx('nav-item')}>
-                                <Link
-                                    onClick={() => onUpdateActiveNavLink('contact')}
-                                    className={
-                                        activeNavLink === 'contact' ? cx('nav-link', 'active-dropdown') : cx('nav-link')
+                                <NavLink
+                                    className={({ isActive }) =>
+                                        isActive ? cx('nav-link', 'active-dropdown') : cx('nav-link')
                                     }
-                                    to="/contact"
+                                    to={config.routes.contact}
                                 >
                                     Contact Us
-                                </Link>
+                                </NavLink>
                             </li>
                         </ul>
                     )}

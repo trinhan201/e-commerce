@@ -1,0 +1,95 @@
+@import '../../components/GlobalStyles/mixin.scss';
+
+.slider {
+    overflow: hidden;
+    position: relative;
+}
+
+.slider-img {
+    position: relative;
+    width: 100%;
+
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.slider-text {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    h1,
+    p {
+        color: #ffffff;
+        font-weight: 400;
+        letter-spacing: 8px;
+        text-shadow: 2px 2px #000000;
+
+        @include Responsive(mobile) {
+            letter-spacing: 0;
+        }
+    }
+
+    h1 {
+        font-size: 5.5rem;
+        @include Responsive(mobile) {
+            font-size: 2.8rem;
+        }
+    }
+    p {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        @include Responsive(mobile) {
+            font-size: 1.4rem;
+        }
+    }
+
+    .slider-btn {
+        @include Responsive(mobile) {
+            padding: 8px 16px;
+            min-width: 60px;
+        }
+    }
+}
+
+.prev-slide,
+.next-slide {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #858585;
+    font-size: 2.6rem;
+    padding: 10px;
+
+    &:hover {
+        color: #ffffff;
+        transition: 0.5s all;
+        cursor: pointer;
+    }
+}
+
+.prev-slide {
+    left: 40px;
+}
+
+.next-slide {
+    right: 40px;
+}
+
+@include Responsive(mobile) {
+    .prev-slide {
+        left: 20px;
+    }
+
+    .next-slide {
+        right: 20px;
+    }
+}

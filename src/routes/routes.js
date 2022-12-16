@@ -1,11 +1,11 @@
 import config from '~/config';
 
 // Pages
-import Home from '~/pages/Home';
+import Home from '~/pages/Home/Home';
 import Product from '~/pages/Product';
-import About from '~/pages/About';
-import Contact from '~/pages/Contact';
-import Cart from '~/pages/Cart';
+import About from '~/pages/About/About';
+import Contact from '~/pages/Contact/Contact';
+import Cart from '~/pages/Cart/Cart';
 
 // Public routes
 const publicRoutes = [

@@ -1,10 +1,12 @@
 import classNames from 'classnames/bind';
 import Button from '~/components/Button';
 import styles from './About.module.scss';
+import { NavLink } from 'react-router-dom';
 
 import { faSquareCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { about } from '~/assets/img';
+import config from '~/config';
 
 const cx = classNames.bind(styles);
 function About() {
@@ -13,7 +15,7 @@ function About() {
             <div className={cx('about-wrapper')}></div>
             <div className={cx('about-banner')}></div>
             <div className={cx('page-path')}>
-                <a href="/">Home</a> <span>{'>'}</span> About Us
+                <NavLink to={config.routes.home}>Home</NavLink> <span>{'>'}</span> About Us
             </div>
             <div className={cx('about-shop-wrapper')}>
                 <div className={cx('container')}>
@@ -30,23 +32,23 @@ function About() {
                                 <li className={cx('about-item')}>
                                     <span className={cx('about-icon')}>
                                         <FontAwesomeIcon icon={faSquareCheck} />
-                                    </span>{' '}
+                                    </span>
                                     Ut enim ad minim veniam
                                 </li>
                                 <li className={cx('about-item')}>
                                     <span className={cx('about-icon')}>
                                         <FontAwesomeIcon icon={faSquareCheck} />
-                                    </span>{' '}
+                                    </span>
                                     Quis nostrud exercitation ullamco laboris
                                 </li>
                                 <li className={cx('about-item')}>
                                     <span className={cx('about-icon')}>
                                         <FontAwesomeIcon icon={faSquareCheck} />
-                                    </span>{' '}
+                                    </span>
                                     Nisi ut aliquip ex ea commodo consequat
                                 </li>
                             </ul>
-                            <Button className={cx('about-btn')} primary>
+                            <Button to={config.routes.product} className={cx('about-btn')} primary>
                                 VIEW OUR PRODUCT
                             </Button>
                         </div>

@@ -1,7 +1,9 @@
 import classNames from 'classnames/bind';
 import styles from './Contact.module.scss';
+import config from '~/config';
 
 import Button from '~/components/Button';
+import { NavLink } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelopeOpenText, faLocationDot, faMobile } from '@fortawesome/free-solid-svg-icons';
@@ -13,7 +15,7 @@ function Contact() {
         <>
             <div className={cx('contact-banner')}></div>
             <div className={cx('page-path')}>
-                <a href="/">Home</a> <span>{'>'}</span> Contact Us
+                <NavLink to={config.routes.home}>Home</NavLink> <span>{'>'}</span> Contact Us
             </div>
             <div className={cx('container')}>
                 <div className={cx('contact-field')}>

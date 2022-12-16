@@ -12,6 +12,7 @@ function Button({
     rounded = false,
     disabled = false,
     small = false,
+    medium = false,
     large = false,
     children,
     className,
@@ -51,6 +52,7 @@ function Button({
         disabled,
         rounded,
         small,
+        medium,
         large,
     });
 

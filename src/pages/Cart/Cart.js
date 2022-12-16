@@ -5,6 +5,7 @@ import Button from '~/components/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { shoppingCart } from '~/assets/img';
+import config from '~/config';
 
 const cx = classNames.bind(styles);
 function Cart() {
@@ -16,7 +17,9 @@ function Cart() {
                         <img src={shoppingCart} alt="" />
                     </div>
                     <p className={cx('cart-empty-text')}>Your shopping cart is empty</p>
-                    <Button primary>SHOP NOW !!!</Button>
+                    <Button to={config.routes.product} primary>
+                        SHOP NOW !!!
+                    </Button>
                 </div>
             </div>
             {/* <div className={cx('cart-container')}>
@@ -103,7 +106,7 @@ function Cart() {
                     </div>
                     <div className={cx('bill-actions')}>
                         <Button primary>CHECK OUT</Button>
-                        <Button primary>SHOP MORE</Button>
+                        <Button to={config.routes.product} primary>SHOP MORE</Button>
                     </div>
                 </div>
             </div> */}

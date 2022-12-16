@@ -105,38 +105,38 @@ function Footer() {
                         <div className={cx('right-side')}>
                             <div className={cx('info-content')}>
                                 <div className={cx('info-title')}>
-                                    <h2>CATEGORY</h2>
+                                    <h2>SHOP</h2>
                                 </div>
                                 <ul className={cx('info-link-list')}>
                                     <li>
                                         <div className={cx('link-icon')}>
                                             <FontAwesomeIcon icon={faAngleRight} />
                                         </div>
-                                        <a href="!#">Smartphone</a>
+                                        <a href="!#">New Arrivals</a>
                                     </li>
                                     <li>
                                         <div className={cx('link-icon')}>
                                             <FontAwesomeIcon icon={faAngleRight} />
                                         </div>
-                                        <a href="!#">Laptop</a>
+                                        <a href="!#">Men</a>
                                     </li>
                                     <li>
                                         <div className={cx('link-icon')}>
                                             <FontAwesomeIcon icon={faAngleRight} />
                                         </div>
-                                        <a href="!#">Tablet</a>
+                                        <a href="!#">Women</a>
                                     </li>
                                     <li>
                                         <div className={cx('link-icon')}>
                                             <FontAwesomeIcon icon={faAngleRight} />
                                         </div>
-                                        <a href="!#">Smartwatch</a>
+                                        <a href="!#">Brands</a>
                                     </li>
                                     <li>
                                         <div className={cx('link-icon')}>
                                             <FontAwesomeIcon icon={faAngleRight} />
                                         </div>
-                                        <a href="!#">PC, Printer</a>
+                                        <a href="!#">Trends</a>
                                     </li>
                                 </ul>
                             </div>
