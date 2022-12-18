@@ -13,9 +13,11 @@ const cx = classNames.bind(styles);
 function Contact() {
     return (
         <>
-            <div className={cx('contact-banner')}></div>
-            <div className={cx('page-path')}>
-                <NavLink to={config.routes.home}>Home</NavLink> <span>{'>'}</span> Contact Us
+            <div className={cx('contact-banner')}>
+                <div className={cx('banner-mid')}></div>
+                <div className={cx('page-path')}>
+                    <NavLink to={config.routes.home}>Home</NavLink> <span>{'>'}</span> Contact Us
+                </div>
             </div>
             <div className={cx('container')}>
                 <div className={cx('contact-field')}>

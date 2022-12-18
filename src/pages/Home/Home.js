@@ -73,6 +73,7 @@ function Home() {
         autoplay: true,
         autoplaySpeed: 3000,
         pauseOnHover: true,
+        adaptiveHeight: true,
     };
 
     return (

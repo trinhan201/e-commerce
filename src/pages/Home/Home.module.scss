@@ -13,6 +13,14 @@
         width: 100%;
         object-fit: cover;
     }
+
+    @include Responsive(mobile) {
+        height: 350px;
+
+        img {
+            height: 100%;
+        }
+    }
 }
 
 .slider-text {

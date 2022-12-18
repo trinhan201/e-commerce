@@ -13,9 +13,11 @@ function About() {
     return (
         <>
             <div className={cx('about-wrapper')}></div>
-            <div className={cx('about-banner')}></div>
-            <div className={cx('page-path')}>
-                <NavLink to={config.routes.home}>Home</NavLink> <span>{'>'}</span> About Us
+            <div className={cx('about-banner')}>
+                <div className={cx('banner-mid')}></div>
+                <div className={cx('page-path')}>
+                    <NavLink to={config.routes.home}>Home</NavLink> <span>{'>'}</span> About Us
+                </div>
             </div>
             <div className={cx('about-shop-wrapper')}>
                 <div className={cx('container')}>

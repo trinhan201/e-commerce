@@ -2,11 +2,14 @@
 
 .contact-banner {
     position: relative;
-    padding-top: 50%;
-    background-image: url('../../assets/img/contact-banner.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    height: 350px;
+
+    .banner-mid {
+        background: url('../../assets/img/contact-banner.jpg') rgba($color: #000000, $alpha: 0.3) center / cover
+            no-repeat;
+        background-blend-mode: multiply;
+        height: 100%;
+    }
 }
 
 .contact-field {
