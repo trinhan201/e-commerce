@@ -110,56 +110,49 @@ function Header() {
                                 </NavLink>
                             </li>
                         </ul>
-                        <div className={scrolled ? cx('dark-mode', 'dark-mode-color') : cx('dark-mode')}>
+                        <div className={cx('dark-mode')}>
                             <span>
                                 <FontAwesomeIcon icon={faMoon} />
                             </span>
                         </div>
                     </div>
-                    {toggleNav && (
-                        <ul id="nav-list-dropdown" className={cx('nav-list-dropdown', 'mt-15')}>
-                            <li className={cx('nav-item')}>
-                                <NavLink
-                                    className={({ isActive }) =>
-                                        isActive ? cx('nav-link', 'active-dropdown') : cx('nav-link')
-                                    }
-                                    to={config.routes.home}
-                                >
-                                    Home
-                                </NavLink>
-                            </li>
-                            <li className={cx('nav-item')}>
-                                <NavLink
-                                    className={({ isActive }) =>
-                                        isActive ? cx('nav-link', 'active-dropdown') : cx('nav-link')
-                                    }
-                                    to={config.routes.product}
-                                >
-                                    Products
-                                </NavLink>
-                            </li>
-                            <li className={cx('nav-item')}>
-                                <NavLink
-                                    className={({ isActive }) =>
-                                        isActive ? cx('nav-link', 'active-dropdown') : cx('nav-link')
-                                    }
-                                    to={config.routes.about}
-                                >
-                                    About Us
-                                </NavLink>
-                            </li>
-                            <li className={cx('nav-item')}>
-                                <NavLink
-                                    className={({ isActive }) =>
-                                        isActive ? cx('nav-link', 'active-dropdown') : cx('nav-link')
-                                    }
-                                    to={config.routes.contact}
-                                >
-                                    Contact Us
-                                </NavLink>
-                            </li>
-                        </ul>
-                    )}
+                    <ul
+                        id="nav-list-dropdown"
+                        className={toggleNav ? cx('nav-list-dropdown', 'toggleNav') : cx('nav-list-dropdown')}
+                    >
+                        <li className={cx('nav-item')}>
+                            <NavLink
+                                className={({ isActive }) => (isActive ? cx('nav-link', 'active') : cx('nav-link'))}
+                                to={config.routes.home}
+                            >
+                                Home
+                            </NavLink>
+                        </li>
+                        <li className={cx('nav-item')}>
+                            <NavLink
+                                className={({ isActive }) => (isActive ? cx('nav-link', 'active') : cx('nav-link'))}
+                                to={config.routes.product}
+                            >
+                                Products
+                            </NavLink>
+                        </li>
+                        <li className={cx('nav-item')}>
+                            <NavLink
+                                className={({ isActive }) => (isActive ? cx('nav-link', 'active') : cx('nav-link'))}
+                                to={config.routes.about}
+                            >
+                                About Us
+                            </NavLink>
+                        </li>
+                        <li className={cx('nav-item')}>
+                            <NavLink
+                                className={({ isActive }) => (isActive ? cx('nav-link', 'active') : cx('nav-link'))}
+                                to={config.routes.contact}
+                            >
+                                Contact Us
+                            </NavLink>
+                        </li>
+                    </ul>
                 </div>
             </div>
             {modalShowForm && <ModalForm setModalShowForm={setModalShowForm} />}

@@ -107,8 +107,7 @@
 
 .nav-container {
     display: flex;
-    justify-content: center;
-    position: relative;
+    justify-content: space-between;
 
     @include Responsive(tablet) {
         justify-content: space-between;
@@ -151,10 +150,10 @@
 }
 
 .dark-mode {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 0;
     border: none;
     color: #ffffff;
     font-size: 2.2rem;
@@ -169,6 +168,7 @@
 }
 
 .nav-dropdown {
+    visibility: visible;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -181,16 +181,21 @@
     user-select: none;
 
     @include Responsive(pc) {
-        display: none;
+        visibility: hidden;
     }
 }
 
 .nav-list-dropdown {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 0;
+    overflow: hidden;
     background-color: #ffffff;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    padding: 24px 0;
+    transition: height ease-in 0.5s, margin-top ease-in 0.5s;
 
     .nav-item {
         padding: 8px 0;
@@ -202,8 +207,9 @@
 
     .nav-link:hover {
         color: var(--secondary);
-        border-bottom: 1px solid rgba($color: #ed174a, $alpha: 0.62);
+        border-bottom: 1px solid rgba($color: #fa7455, $alpha: 0.62);
         border-radius: 4px;
+        transition: 0.5s all;
     }
 
     @include Responsive(pc) {
@@ -211,15 +217,26 @@
     }
 }
 
+.toggleNav {
+    height: 200px;
+    margin-top: 15px;
+}
+
 .active {
     border-bottom: 1px solid rgba($color: #ffffff, $alpha: 0.62);
     border-radius: 4px;
-}
 
-.active-dropdown {
-    color: var(--secondary) !important;
-    border-bottom: 1px solid rgba($color: #ed174a, $alpha: 0.62);
-    border-radius: 4px;
+    @include Responsive(tablet) {
+        color: var(--secondary) !important;
+        border-bottom: 1px solid rgba($color: #fa7455, $alpha: 0.62);
+        border-radius: 4px;
+    }
+
+    @include Responsive(mobile) {
+        color: var(--secondary) !important;
+        border-bottom: 1px solid rgba($color: #fa7455, $alpha: 0.62);
+        border-radius: 4px;
+    }
 }
 
 .nav-bar-effect {
@@ -238,11 +255,15 @@
 
     .active {
         color: var(--secondary) !important;
-        border-bottom: 1px solid rgba($color: #ed174a, $alpha: 0.62);
+        border-bottom: 1px solid rgba($color: #fa7455, $alpha: 0.62);
         border-radius: 4px;
     }
 
     .dark-mode {
         color: #000000;
+
+        &:hover {
+            color: var(--secondary);
+        }
     }
 }
