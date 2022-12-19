@@ -50,24 +50,20 @@ function Product() {
                                 </div>
                             </div>
                         </div>
-                        <div className={cx('filter-by-brand')}>
-                            <h4 className={cx('filter-title')}>Brand</h4>
-                            <div className={cx('filter-brand-field')}>
-                                <div className={cx('brand-selection')}>
-                                    <input type="checkbox" value="vincentChase" />
-                                    <label>Vincent Chase</label>
+                        <div className={cx('filter-by-category')}>
+                            <h4 className={cx('filter-title')}>Category</h4>
+                            <div className={cx('filter-category-field')}>
+                                <div className={cx('category-selection')}>
+                                    <input type="checkbox" value="men" />
+                                    <label>Men</label>
                                 </div>
-                                <div className={cx('brand-selection')}>
-                                    <input type="checkbox" value="johnJacobs" />
-                                    <label>John Jacobs</label>
+                                <div className={cx('category-selection')}>
+                                    <input type="checkbox" value="women" />
+                                    <label>Women</label>
                                 </div>
-                                <div className={cx('brand-selection')}>
-                                    <input type="checkbox" value="tommyHilfiger" />
-                                    <label>Tommy Hilfiger</label>
-                                </div>
-                                <div className={cx('brand-selection')}>
-                                    <input type="checkbox" value="bossOrange" />
-                                    <label>Boss Orange</label>
+                                <div className={cx('category-selection')}>
+                                    <input type="checkbox" value="kid" />
+                                    <label>Kid</label>
                                 </div>
                             </div>
                         </div>

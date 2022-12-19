@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import productData from '~/data';
 
 import classNames from 'classnames/bind';
 import styles from './Home.module.scss';
@@ -133,302 +134,45 @@ function Home() {
                     <div className={cx('new-arrival-section')}>
                         <h1 className={cx('section-title')}>New Arrivals for you</h1>
                         <ul className={cx('product-list')}>
-                            <li className={cx('product-item')}>
-                                <div className={cx('product-img')}>
-                                    <img src={product} alt="" />
-                                    <span className={cx('product-tag', 'new-tag')}>New</span>
-                                    <div className={cx('to-product-detail')}>
-                                        <Button primary to={config.routes.product}>
-                                            <FontAwesomeIcon icon={faEye} />
-                                        </Button>
+                            {productData.map((item) => (
+                                <li key={item.id} className={cx('product-item')}>
+                                    <div className={cx('product-img')}>
+                                        <img src={item.productImg} alt="" />
+                                        <span className={cx('product-tag', 'new-tag')}>New</span>
+                                        <div className={cx('to-product-detail')}>
+                                            <Button primary to={config.routes.product}>
+                                                <FontAwesomeIcon icon={faEye} />
+                                            </Button>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className={cx('product-info')}>
-                                    <NavLink to={config.routes.product}>
-                                        <h3 className={cx('product-name')}>Product name</h3>
-                                    </NavLink>
-                                    <p className={cx('product-price')}>$775.00</p>
-                                    <div className={cx('product-rating')}>
-                                        <span className={cx('star-checked')}>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span className={cx('star-checked')}>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span className={cx('star-checked')}>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
+                                    <div className={cx('product-info')}>
+                                        <NavLink to={config.routes.product}>
+                                            <h3 className={cx('product-name')}>{item.productName}</h3>
+                                        </NavLink>
+                                        <p className={cx('product-price')}>${item.productPrice}</p>
+                                        <div className={cx('product-rating')}>
+                                            <span className={cx('star-checked')}>
+                                                <FontAwesomeIcon icon={faStar} />
+                                            </span>
+                                            <span className={cx('star-checked')}>
+                                                <FontAwesomeIcon icon={faStar} />
+                                            </span>
+                                            <span className={cx('star-checked')}>
+                                                <FontAwesomeIcon icon={faStar} />
+                                            </span>
+                                            <span>
+                                                <FontAwesomeIcon icon={faStar} />
+                                            </span>
+                                            <span>
+                                                <FontAwesomeIcon icon={faStar} />
+                                            </span>
+                                        </div>
+                                        <div className={cx('add-cart-btn')}>
+                                            <FontAwesomeIcon icon={faCartPlus} />
+                                        </div>
                                     </div>
-                                    <div className={cx('add-cart-btn')}>
-                                        <FontAwesomeIcon icon={faCartPlus} />
-                                    </div>
-                                </div>
-                            </li>
-                            <li className={cx('product-item')}>
-                                <div className={cx('product-img')}>
-                                    <img src={product} alt="" />
-                                    <span className={cx('product-tag', 'new-tag')}>New</span>
-                                    <div className={cx('to-product-detail')}>
-                                        <Button primary to={config.routes.product}>
-                                            <FontAwesomeIcon icon={faEye} />
-                                        </Button>
-                                    </div>
-                                </div>
-                                <div className={cx('product-info')}>
-                                    <NavLink to={config.routes.product}>
-                                        <h3 className={cx('product-name')}>Product name</h3>
-                                    </NavLink>
-                                    <p className={cx('product-price')}>$775.00</p>
-                                    <div className={cx('product-rating')}>
-                                        <span className={cx('star-checked')}>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span className={cx('star-checked')}>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span className={cx('star-checked')}>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                    </div>
-                                    <div className={cx('add-cart-btn')}>
-                                        <FontAwesomeIcon icon={faCartPlus} />
-                                    </div>
-                                </div>
-                            </li>
-                            <li className={cx('product-item')}>
-                                <div className={cx('product-img')}>
-                                    <img src={product} alt="" />
-                                    <span className={cx('product-tag', 'new-tag')}>New</span>
-                                    <div className={cx('to-product-detail')}>
-                                        <Button primary to={config.routes.product}>
-                                            <FontAwesomeIcon icon={faEye} />
-                                        </Button>
-                                    </div>
-                                </div>
-                                <div className={cx('product-info')}>
-                                    <NavLink to={config.routes.product}>
-                                        <h3 className={cx('product-name')}>Product name</h3>
-                                    </NavLink>
-                                    <p className={cx('product-price')}>$775.00</p>
-                                    <div className={cx('product-rating')}>
-                                        <span className={cx('star-checked')}>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span className={cx('star-checked')}>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span className={cx('star-checked')}>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                    </div>
-                                    <div className={cx('add-cart-btn')}>
-                                        <FontAwesomeIcon icon={faCartPlus} />
-                                    </div>
-                                </div>
-                            </li>
-                            <li className={cx('product-item')}>
-                                <div className={cx('product-img')}>
-                                    <img src={product} alt="" />
-                                    <span className={cx('product-tag', 'new-tag')}>New</span>
-                                    <div className={cx('to-product-detail')}>
-                                        <Button primary to={config.routes.product}>
-                                            <FontAwesomeIcon icon={faEye} />
-                                        </Button>
-                                    </div>
-                                </div>
-                                <div className={cx('product-info')}>
-                                    <NavLink to={config.routes.product}>
-                                        <h3 className={cx('product-name')}>Product name</h3>
-                                    </NavLink>
-                                    <p className={cx('product-price')}>$775.00</p>
-                                    <div className={cx('product-rating')}>
-                                        <span className={cx('star-checked')}>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span className={cx('star-checked')}>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span className={cx('star-checked')}>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                    </div>
-                                    <div className={cx('add-cart-btn')}>
-                                        <FontAwesomeIcon icon={faCartPlus} />
-                                    </div>
-                                </div>
-                            </li>
-                            <li className={cx('product-item')}>
-                                <div className={cx('product-img')}>
-                                    <img src={product} alt="" />
-                                    <span className={cx('product-tag', 'new-tag')}>New</span>
-                                    <div className={cx('to-product-detail')}>
-                                        <Button primary to={config.routes.product}>
-                                            <FontAwesomeIcon icon={faEye} />
-                                        </Button>
-                                    </div>
-                                </div>
-                                <div className={cx('product-info')}>
-                                    <NavLink to={config.routes.product}>
-                                        <h3 className={cx('product-name')}>Product name</h3>
-                                    </NavLink>
-                                    <p className={cx('product-price')}>$775.00</p>
-                                    <div className={cx('product-rating')}>
-                                        <span className={cx('star-checked')}>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span className={cx('star-checked')}>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span className={cx('star-checked')}>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                    </div>
-                                    <div className={cx('add-cart-btn')}>
-                                        <FontAwesomeIcon icon={faCartPlus} />
-                                    </div>
-                                </div>
-                            </li>
-                            <li className={cx('product-item')}>
-                                <div className={cx('product-img')}>
-                                    <img src={product} alt="" />
-                                    <span className={cx('product-tag', 'new-tag')}>New</span>
-                                    <div className={cx('to-product-detail')}>
-                                        <Button primary to={config.routes.product}>
-                                            <FontAwesomeIcon icon={faEye} />
-                                        </Button>
-                                    </div>
-                                </div>
-                                <div className={cx('product-info')}>
-                                    <NavLink to={config.routes.product}>
-                                        <h3 className={cx('product-name')}>Product name</h3>
-                                    </NavLink>
-                                    <p className={cx('product-price')}>$775.00</p>
-                                    <div className={cx('product-rating')}>
-                                        <span className={cx('star-checked')}>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span className={cx('star-checked')}>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span className={cx('star-checked')}>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                    </div>
-                                    <div className={cx('add-cart-btn')}>
-                                        <FontAwesomeIcon icon={faCartPlus} />
-                                    </div>
-                                </div>
-                            </li>
-                            <li className={cx('product-item')}>
-                                <div className={cx('product-img')}>
-                                    <img src={product} alt="" />
-                                    <span className={cx('product-tag', 'new-tag')}>New</span>
-                                    <div className={cx('to-product-detail')}>
-                                        <Button primary to={config.routes.product}>
-                                            <FontAwesomeIcon icon={faEye} />
-                                        </Button>
-                                    </div>
-                                </div>
-                                <div className={cx('product-info')}>
-                                    <NavLink to={config.routes.product}>
-                                        <h3 className={cx('product-name')}>Product name</h3>
-                                    </NavLink>
-                                    <p className={cx('product-price')}>$775.00</p>
-                                    <div className={cx('product-rating')}>
-                                        <span className={cx('star-checked')}>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span className={cx('star-checked')}>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span className={cx('star-checked')}>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                    </div>
-                                    <div className={cx('add-cart-btn')}>
-                                        <FontAwesomeIcon icon={faCartPlus} />
-                                    </div>
-                                </div>
-                            </li>
-                            <li className={cx('product-item')}>
-                                <div className={cx('product-img')}>
-                                    <img src={product} alt="" />
-                                    <span className={cx('product-tag', 'new-tag')}>New</span>
-                                    <div className={cx('to-product-detail')}>
-                                        <Button primary to={config.routes.product}>
-                                            <FontAwesomeIcon icon={faEye} />
-                                        </Button>
-                                    </div>
-                                </div>
-                                <div className={cx('product-info')}>
-                                    <NavLink to={config.routes.product}>
-                                        <h3 className={cx('product-name')}>Product name</h3>
-                                    </NavLink>
-                                    <p className={cx('product-price')}>$775.00</p>
-                                    <div className={cx('product-rating')}>
-                                        <span className={cx('star-checked')}>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span className={cx('star-checked')}>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span className={cx('star-checked')}>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                        <span>
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </span>
-                                    </div>
-                                    <div className={cx('add-cart-btn')}>
-                                        <FontAwesomeIcon icon={faCartPlus} />
-                                    </div>
-                                </div>
-                            </li>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                     <div className={cx('discount-section')}>
