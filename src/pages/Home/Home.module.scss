@@ -110,6 +110,21 @@
     margin-top: 72px;
 }
 
+.section-header-field {
+    display: flex;
+    justify-content: space-between;
+
+    .see-all-btn {
+        align-self: center;
+        margin-bottom: 32px;
+        font-weight: 600;
+        border: 1px solid #cccccc;
+        padding: 4px 8px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+}
+
 .section-title {
     font-size: 4.5rem;
     font-weight: 400;

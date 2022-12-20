@@ -1,0 +1,44 @@
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 4px;
+    padding: 16px 0;
+
+    li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+
+        &:hover {
+            color: #ffffff;
+            background-color: var(--secondary);
+            border-radius: 8px;
+
+            a {
+                color: #ffffff;
+            }
+        }
+
+        a {
+            padding: 4px 8px;
+        }
+    }
+}
+
+.active {
+    background-color: var(--secondary);
+    border-radius: 8px;
+
+    a {
+        color: #ffffff;
+    }
+}
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}

@@ -13,6 +13,8 @@ import ProductItem from '~/components/Product/ProductItem';
 import { sliderBanner1, sliderBanner2, sliderBanner3, sliderBanner4 } from '~/assets/img';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { NavLink } from 'react-router-dom';
+import config from '~/config';
 
 const cx = classNames.bind(styles);
 function Home() {
@@ -139,9 +141,14 @@ function Home() {
             <div className={cx('container')}>
                 <div className={cx('product-section')}>
                     <div className={cx('new-arrival-section')}>
-                        <h1 className={cx('section-title')}>New Arrivals for you</h1>
+                        <div className={cx('section-header-field')}>
+                            <h1 className={cx('section-title')}>New Arrivals for you</h1>
+                            <NavLink className={cx('see-all-btn')} to={config.routes.product}>
+                                See all
+                            </NavLink>
+                        </div>
                         <ul className={cx('product-list')}>
-                            {productNew.map((item) => (
+                            {productNew.slice(0, 8).map((item) => (
                                 <ProductItem
                                     key={item.id}
                                     isSoldOut={item.isSoldOut}
@@ -157,9 +164,14 @@ function Home() {
                         </ul>
                     </div>
                     <div className={cx('discount-section')}>
-                        <h1 className={cx('section-title')}>Sale Off</h1>
+                        <div className={cx('section-header-field')}>
+                            <h1 className={cx('section-title')}>Sale Off</h1>
+                            <NavLink className={cx('see-all-btn')} to={config.routes.product}>
+                                See all
+                            </NavLink>
+                        </div>
                         <ul className={cx('product-list')}>
-                            {productSaleOff.map((item) => (
+                            {productSaleOff.slice(0, 8).map((item) => (
                                 <ProductItem
                                     key={item.id}
                                     isSoldOut={item.isSoldOut}

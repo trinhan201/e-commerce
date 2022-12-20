@@ -4,16 +4,38 @@ import classNames from 'classnames/bind';
 import styles from './Product.module.scss';
 import Button from '~/components/Button';
 import ProductItem from '~/components/Product/ProductItem';
+import Pagination from '~/components/Product/Pagination/Pagination';
 
 import productData from '~/data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faFilter, faSearch, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faFilter, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
 import config from '~/config';
+import ReactStars from 'react-rating-stars-component';
 
 const cx = classNames.bind(styles);
 function Product() {
     const [showFilter, setShowFilter] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [productsPerPage] = useState(12);
+
+    //Get current products
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    const currentProducts = productData.slice(indexOfFirstProduct, indexOfLastProduct);
+
+    //Change page
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    };
+
+    const nextPage = (pageNumber) => {
+        setCurrentPage(pageNumber + 1);
+    };
+
+    const prevPage = (pageNumber) => {
+        setCurrentPage(pageNumber - 1);
+    };
 
     return (
         <>
@@ -101,93 +123,23 @@ function Product() {
                             <h4 className={cx('filter-title')}>Customer Review</h4>
                             <div className={cx('filter-review-field')}>
                                 <div className={cx('review-selection')}>
-                                    <span className={cx('star-checked')}>
-                                        <FontAwesomeIcon icon={faStar} />
-                                    </span>
-                                    <span className={cx('star-checked')}>
-                                        <FontAwesomeIcon icon={faStar} />
-                                    </span>
-                                    <span className={cx('star-checked')}>
-                                        <FontAwesomeIcon icon={faStar} />
-                                    </span>
-                                    <span className={cx('star-checked')}>
-                                        <FontAwesomeIcon icon={faStar} />
-                                    </span>
-                                    <span className={cx('star-checked')}>
-                                        <FontAwesomeIcon icon={faStar} />
-                                    </span>
+                                    <ReactStars size={20} value={5} edit={false} />
                                     <span>5.0</span>
                                 </div>
                                 <div className={cx('review-selection')}>
-                                    <span className={cx('star-checked')}>
-                                        <FontAwesomeIcon icon={faStar} />
-                                    </span>
-                                    <span className={cx('star-checked')}>
-                                        <FontAwesomeIcon icon={faStar} />
-                                    </span>
-                                    <span className={cx('star-checked')}>
-                                        <FontAwesomeIcon icon={faStar} />
-                                    </span>
-                                    <span className={cx('star-checked')}>
-                                        <FontAwesomeIcon icon={faStar} />
-                                    </span>
-                                    <span>
-                                        <FontAwesomeIcon icon={faStar} />
-                                    </span>
+                                    <ReactStars size={20} value={4} edit={false} />
                                     <span>4.0</span>
                                 </div>
                                 <div className={cx('review-selection')}>
-                                    <span className={cx('star-checked')}>
-                                        <FontAwesomeIcon icon={faStar} />
-                                    </span>
-                                    <span className={cx('star-checked')}>
-                                        <FontAwesomeIcon icon={faStar} />
-                                    </span>
-                                    <span className={cx('star-checked')}>
-                                        <FontAwesomeIcon icon={faStar} />
-                                    </span>
-                                    <span>
-                                        <FontAwesomeIcon icon={faStar} />
-                                    </span>
-                                    <span>
-                                        <FontAwesomeIcon icon={faStar} />
-                                    </span>
+                                    <ReactStars size={20} value={3} edit={false} />
                                     <span>3.0</span>
                                 </div>
                                 <div className={cx('review-selection')}>
-                                    <span className={cx('star-checked')}>
-                                        <FontAwesomeIcon icon={faStar} />
-                                    </span>
-                                    <span className={cx('star-checked')}>
-                                        <FontAwesomeIcon icon={faStar} />
-                                    </span>
-                                    <span>
-                                        <FontAwesomeIcon icon={faStar} />
-                                    </span>
-                                    <span>
-                                        <FontAwesomeIcon icon={faStar} />
-                                    </span>
-                                    <span>
-                                        <FontAwesomeIcon icon={faStar} />
-                                    </span>
+                                    <ReactStars size={20} value={2} edit={false} />
                                     <span>2.0</span>
                                 </div>
                                 <div className={cx('review-selection')}>
-                                    <span className={cx('star-checked')}>
-                                        <FontAwesomeIcon icon={faStar} />
-                                    </span>
-                                    <span>
-                                        <FontAwesomeIcon icon={faStar} />
-                                    </span>
-                                    <span>
-                                        <FontAwesomeIcon icon={faStar} />
-                                    </span>
-                                    <span>
-                                        <FontAwesomeIcon icon={faStar} />
-                                    </span>
-                                    <span>
-                                        <FontAwesomeIcon icon={faStar} />
-                                    </span>
+                                    <ReactStars size={20} value={1} edit={false} />
                                     <span>1.0</span>
                                 </div>
                             </div>
@@ -195,7 +147,7 @@ function Product() {
                     </div>
                     <div className={cx('product-field')}>
                         <ul className={cx('product-list')}>
-                            {productData.map((item) => (
+                            {currentProducts.map((item) => (
                                 <ProductItem
                                     key={item.id}
                                     isSoldOut={item.isSoldOut}
@@ -209,16 +161,15 @@ function Product() {
                                 />
                             ))}
                         </ul>
-                        <ul className={cx('pagination')}>
-                            <li>{'<'}</li>
-                            <li>1</li>
-                            <li>2</li>
-                            <li>3</li>
-                            <li>4</li>
-                            <li>5</li>
-                            <li>6</li>
-                            <li>{'>'}</li>
-                        </ul>
+                        <Pagination
+                            productsPerPage={productsPerPage}
+                            totalProduct={productData.length}
+                            currPageNum={currentPage}
+                            lastPageNum={productData.length / productsPerPage}
+                            paginate={paginate}
+                            prevPage={prevPage}
+                            nextPage={nextPage}
+                        />
                     </div>
                 </div>
             </div>
