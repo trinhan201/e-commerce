@@ -1,0 +1,123 @@
+.product-item {
+    width: 100%;
+    border: 1px solid #cccccc;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.product-tag {
+    display: none;
+    background: #f60b0e;
+    color: #fff;
+    right: -18px;
+    position: absolute;
+    top: 8px;
+    width: 79px;
+    font-size: 13px;
+    height: 29px;
+    text-align: center;
+    line-height: 2.3;
+    transform: rotate(-90deg);
+}
+
+.sold-out {
+    position: relative;
+    opacity: 0.5;
+    pointer-events: none;
+
+    &::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        content: 'Sold out';
+        font-size: 2rem;
+        background-color: #b8b3a5;
+        padding: 4px 8px;
+        z-index: 1;
+    }
+}
+
+.new-tag {
+    display: block;
+    background: #f60b0e;
+}
+
+.discount-tag {
+    display: block;
+    background: #ffdf00;
+}
+
+.product-img {
+    position: relative;
+    width: 100%;
+    height: 200px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    &:hover {
+        .to-product-detail {
+            opacity: 1;
+            top: 70%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+}
+
+.to-product-detail {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: top 1.8s, transform 1.8s, opacity 1.8s;
+}
+
+.product-info {
+    position: relative;
+}
+
+.product-name,
+.product-price {
+    margin-bottom: 8px;
+}
+
+.product-name {
+    width: 90%;
+    color: #9595b0;
+    font-weight: 400;
+    letter-spacing: 2px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+.product-price {
+    color: var(--secondary);
+    font-weight: 600;
+
+    span {
+        color: rgba($color: #000000, $alpha: 0.4);
+        text-decoration: line-through;
+        margin-right: 12px;
+    }
+}
+
+.add-cart-btn {
+    position: absolute;
+    top: 32px;
+    right: 0;
+    font-size: 2.3rem;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--secondary);
+        transition: 0.5s all;
+    }
+}

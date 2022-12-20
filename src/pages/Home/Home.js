@@ -6,15 +6,13 @@ import styles from './Home.module.scss';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import ReactStars from 'react-rating-stars-component';
 
 import Button from '~/components/Button';
-import config from '~/config';
+import ProductItem from '~/components/Product/ProductItem';
 
 import { sliderBanner1, sliderBanner2, sliderBanner3, sliderBanner4 } from '~/assets/img';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight, faCartPlus, faEye } from '@fortawesome/free-solid-svg-icons';
-import { NavLink } from 'react-router-dom';
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 function Home() {
@@ -144,44 +142,17 @@ function Home() {
                         <h1 className={cx('section-title')}>New Arrivals for you</h1>
                         <ul className={cx('product-list')}>
                             {productNew.map((item) => (
-                                <li
+                                <ProductItem
                                     key={item.id}
-                                    className={
-                                        item.isSoldOut === true ? cx('product-item', 'sold-out') : cx('product-item')
-                                    }
-                                >
-                                    <div className={cx('product-img')}>
-                                        <img src={item.productImg} alt="" />
-                                        {item.isTag === true ? (
-                                            item.productTag === 'New' ? (
-                                                <span className={cx('product-tag', 'new-tag')}>{item.productTag}</span>
-                                            ) : (
-                                                <span className={cx('product-tag', 'discount-tag')}>
-                                                    {item.productDiscount} off
-                                                </span>
-                                            )
-                                        ) : (
-                                            <span className={cx('product-tag')}></span>
-                                        )}
-                                        <div className={cx('to-product-detail')}>
-                                            <Button primary to={config.routes.product}>
-                                                <FontAwesomeIcon icon={faEye} />
-                                            </Button>
-                                        </div>
-                                    </div>
-                                    <div className={cx('product-info')}>
-                                        <NavLink to={config.routes.product}>
-                                            <h3 className={cx('product-name')}>{item.productName}</h3>
-                                        </NavLink>
-                                        <p className={cx('product-price')}>${item.productPrice}</p>
-                                        <div className={cx('product-rating')}>
-                                            <ReactStars size={20} value={item.productReview} edit={false} />
-                                        </div>
-                                        <div className={cx('add-cart-btn')}>
-                                            <FontAwesomeIcon icon={faCartPlus} />
-                                        </div>
-                                    </div>
-                                </li>
+                                    isSoldOut={item.isSoldOut}
+                                    img={item.productImg}
+                                    isTag={item.isTag}
+                                    tag={item.productTag}
+                                    discount={item.productDiscount}
+                                    fname={item.productName}
+                                    price={item.productPrice}
+                                    review={item.productReview}
+                                />
                             ))}
                         </ul>
                     </div>
@@ -189,48 +160,17 @@ function Home() {
                         <h1 className={cx('section-title')}>Sale Off</h1>
                         <ul className={cx('product-list')}>
                             {productSaleOff.map((item) => (
-                                <li
+                                <ProductItem
                                     key={item.id}
-                                    className={
-                                        item.isSoldOut === true ? cx('product-item', 'sold-out') : cx('product-item')
-                                    }
-                                >
-                                    <div className={cx('product-img')}>
-                                        <img src={item.productImg} alt="" />
-                                        {item.isTag === true ? (
-                                            item.productTag === 'New' ? (
-                                                <span className={cx('product-tag', 'new-tag')}>{item.productTag}</span>
-                                            ) : (
-                                                <span className={cx('product-tag', 'discount-tag')}>
-                                                    {item.productDiscount} off
-                                                </span>
-                                            )
-                                        ) : (
-                                            <span className={cx('product-tag')}></span>
-                                        )}
-                                        <div className={cx('to-product-detail')}>
-                                            <Button primary to={config.routes.product}>
-                                                <FontAwesomeIcon icon={faEye} />
-                                            </Button>
-                                        </div>
-                                    </div>
-                                    <div className={cx('product-info')}>
-                                        <NavLink to={config.routes.product}>
-                                            <h3 className={cx('product-name')}>{item.productName}</h3>
-                                        </NavLink>
-                                        <p className={cx('product-price')}>
-                                            <span>${item.productPrice}</span>$
-                                            {item.productPrice -
-                                                Math.round(item.productPrice * (item.productDiscount / 100))}
-                                        </p>
-                                        <div className={cx('product-rating')}>
-                                            <ReactStars size={20} value={item.productReview} edit={false} />
-                                        </div>
-                                        <div className={cx('add-cart-btn')}>
-                                            <FontAwesomeIcon icon={faCartPlus} />
-                                        </div>
-                                    </div>
-                                </li>
+                                    isSoldOut={item.isSoldOut}
+                                    img={item.productImg}
+                                    isTag={item.isTag}
+                                    tag={item.productTag}
+                                    discount={item.productDiscount}
+                                    fname={item.productName}
+                                    price={item.productPrice}
+                                    review={item.productReview}
+                                />
                             ))}
                         </ul>
                     </div>
