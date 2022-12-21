@@ -5,13 +5,16 @@ import styles from './Product.module.scss';
 import Button from '~/components/Button';
 import ProductItem from '~/components/Product/ProductItem';
 import Pagination from '~/components/Product/Pagination/Pagination';
+import CategoryFilter from '~/components/Product/ProductFilter/CategoryFilter';
+import DiscountFilter from '~/components/Product/ProductFilter/DiscountFilter';
+import RatingFilter from '~/components/Product/ProductFilter/RatingFilter';
+import PriceFilter from '~/components/Product/ProductFilter/PriceFilter';
 
 import productData from '~/data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faFilter, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
 import config from '~/config';
-import ReactStars from 'react-rating-stars-component';
 
 const cx = classNames.bind(styles);
 function Product() {
@@ -60,90 +63,10 @@ function Product() {
                                 </Button>
                             </div>
                         </div>
-                        <div className={cx('filter-by-price')}>
-                            <h4 className={cx('filter-title')}>Price</h4>
-                            <div className={cx('filter-price-field')}>
-                                <div className={cx('price-selection')}>
-                                    <input type="radio" value="ascending" />
-                                    <label>Ascending</label>
-                                </div>
-                                <div className={cx('price-selection')}>
-                                    <input type="radio" value="descending" />
-                                    <label>Descending</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={cx('filter-by-category')}>
-                            <h4 className={cx('filter-title')}>Category</h4>
-                            <div className={cx('filter-category-field')}>
-                                <div className={cx('category-selection')}>
-                                    <input type="checkbox" value="men" />
-                                    <label>Men</label>
-                                </div>
-                                <div className={cx('category-selection')}>
-                                    <input type="checkbox" value="women" />
-                                    <label>Women</label>
-                                </div>
-                                <div className={cx('category-selection')}>
-                                    <input type="checkbox" value="kid" />
-                                    <label>Kid</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={cx('filter-by-discount')}>
-                            <h4 className={cx('filter-title')}>Discount</h4>
-                            <div className={cx('filter-discount-field')}>
-                                <div className={cx('discount-selection')}>
-                                    <input type="checkbox" value="5%" />
-                                    <label>5% or More</label>
-                                </div>
-                                <div className={cx('discount-selection')}>
-                                    <input type="checkbox" value="10%" />
-                                    <label>10% or More</label>
-                                </div>
-                                <div className={cx('discount-selection')}>
-                                    <input type="checkbox" value="20%" />
-                                    <label>20% or More</label>
-                                </div>
-                                <div className={cx('discount-selection')}>
-                                    <input type="checkbox" value="30%" />
-                                    <label>30% or More</label>
-                                </div>
-                                <div className={cx('discount-selection')}>
-                                    <input type="checkbox" value="50%" />
-                                    <label>50% or More</label>
-                                </div>
-                                <div className={cx('discount-selection')}>
-                                    <input type="checkbox" value="60%" />
-                                    <label>60% or More</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={cx('filter-by-review')}>
-                            <h4 className={cx('filter-title')}>Customer Review</h4>
-                            <div className={cx('filter-review-field')}>
-                                <div className={cx('review-selection')}>
-                                    <ReactStars size={20} value={5} edit={false} />
-                                    <span>5.0</span>
-                                </div>
-                                <div className={cx('review-selection')}>
-                                    <ReactStars size={20} value={4} edit={false} />
-                                    <span>4.0</span>
-                                </div>
-                                <div className={cx('review-selection')}>
-                                    <ReactStars size={20} value={3} edit={false} />
-                                    <span>3.0</span>
-                                </div>
-                                <div className={cx('review-selection')}>
-                                    <ReactStars size={20} value={2} edit={false} />
-                                    <span>2.0</span>
-                                </div>
-                                <div className={cx('review-selection')}>
-                                    <ReactStars size={20} value={1} edit={false} />
-                                    <span>1.0</span>
-                                </div>
-                            </div>
-                        </div>
+                        <PriceFilter />
+                        <CategoryFilter />
+                        <DiscountFilter />
+                        <RatingFilter />
                     </div>
                     <div className={cx('product-field')}>
                         <ul className={cx('product-list')}>

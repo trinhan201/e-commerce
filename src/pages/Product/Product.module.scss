@@ -107,15 +107,7 @@
 }
 
 .filter-by-name,
-.filter-by-price,
-.filter-by-category,
-.filter-by-discount,
-.filter-by-review,
-.filter-input-field,
-.filter-price-field,
-.filter-category-field,
-.filter-discount-field,
-.filter-review-field {
+.filter-input-field {
     margin-top: 24px;
     font-size: 1.5rem;
 
@@ -139,28 +131,6 @@
     .filter-input-btn {
         border-top-left-radius: unset;
         border-bottom-left-radius: unset;
-    }
-}
-
-.price-selection,
-.category-selection,
-.discount-selection {
-    margin-top: 8px;
-
-    label {
-        margin-left: 8px;
-    }
-}
-
-.review-selection {
-    display: flex;
-    align-items: center;
-
-    span {
-        &:last-child {
-            margin-left: 8px;
-            line-height: 0;
-        }
     }
 }
 

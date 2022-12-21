@@ -1,0 +1,21 @@
+.filter-by-discount,
+.filter-discount-field {
+    margin-top: 24px;
+    font-size: 1.5rem;
+
+    .filter-title {
+        font-size: 1.8rem;
+    }
+}
+
+.discount-selection {
+    margin-top: 8px;
+
+    input {
+        cursor: pointer;
+    }
+
+    label {
+        margin-left: 8px;
+    }
+}
