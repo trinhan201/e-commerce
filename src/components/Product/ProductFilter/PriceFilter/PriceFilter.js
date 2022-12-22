@@ -1,18 +1,26 @@
+import { useState } from 'react';
+
 import classNames from 'classnames/bind';
 import styles from './PriceFilter.module.scss';
 
 const cx = classNames.bind(styles);
-function PriceFilter() {
+function PriceFilter({ setPriceValue }) {
+    const [price, setPrice] = useState(0);
+    const handleInput = (e) => {
+        setPriceValue(e.target.value);
+    };
+
     return (
         <div className={cx('filter-by-price')}>
             <h4 className={cx('filter-title')}>Price</h4>
-            <div className={cx('filter-price-field')}>
-                <div className={cx('price-selection')}>Under $10</div>
-                <div className={cx('price-selection')}>$10 - $30</div>
-                <div className={cx('price-selection')}>$30 - $60</div>
-                <div className={cx('price-selection')}>$60 - $90</div>
-                <div className={cx('price-selection')}>Over $90</div>
-            </div>
+            <p>${price}</p>
+            <input
+                className={cx('input-slider')}
+                type="range"
+                value={price}
+                onInput={handleInput}
+                onChange={(e) => setPrice(e.target.value)}
+            />
         </div>
     );
 }

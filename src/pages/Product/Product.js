@@ -1,14 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import classNames from 'classnames/bind';
 import styles from './Product.module.scss';
 import Button from '~/components/Button';
 import ProductItem from '~/components/Product/ProductItem';
 import Pagination from '~/components/Product/Pagination/Pagination';
-import CategoryFilter from '~/components/Product/ProductFilter/CategoryFilter';
-import DiscountFilter from '~/components/Product/ProductFilter/DiscountFilter';
-import RatingFilter from '~/components/Product/ProductFilter/RatingFilter';
-import PriceFilter from '~/components/Product/ProductFilter/PriceFilter';
+import FilterPanel from '~/components/Product/ProductFilter/FilterPanel';
 
 import productData from '~/data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -21,11 +18,57 @@ function Product() {
     const [showFilter, setShowFilter] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [productsPerPage] = useState(12);
+    const [finalProduct, setFinalProduct] = useState([]);
+    const [filters, setFilters] = useState({
+        category: [],
+        rating: 0,
+        price: 0,
+    });
+
+    //Product filter
+    const handleUpdateFilter = (newFilters) => {
+        setFilters((prev) => {
+            return { ...prev, ...newFilters };
+        });
+    };
+
+    const filterByCategory = (array) => {
+        if (filters.category.length > 0) {
+            return array.filter((item) => filters.category.includes(item.productCategory));
+        } else {
+            return array;
+        }
+    };
+
+    const filterByRating = (array) => {
+        if (filters.rating) {
+            return array.filter((item) => item.productReview === filters.rating);
+        } else {
+            return array;
+        }
+    };
+
+    const filterByPrice = (array) => {
+        if (filters.price > 0) {
+            return array.filter((item) => item.productPrice < filters.price);
+        } else {
+            return array;
+        }
+    };
+
+    useEffect(() => {
+        let result = productData;
+        result = filterByCategory(result);
+        result = filterByRating(result);
+        result = filterByPrice(result);
+        setCurrentPage(1);
+        setFinalProduct(result);
+    }, [filters]);
 
     //Get current products
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-    const currentProducts = productData.slice(indexOfFirstProduct, indexOfLastProduct);
+    const currentProducts = finalProduct.slice(indexOfFirstProduct, indexOfLastProduct);
 
     //Change page
     const paginate = (pageNumber) => {
@@ -63,10 +106,7 @@ function Product() {
                                 </Button>
                             </div>
                         </div>
-                        <PriceFilter />
-                        <CategoryFilter />
-                        <DiscountFilter />
-                        <RatingFilter />
+                        <FilterPanel onChange={handleUpdateFilter} filters={filters} />
                     </div>
                     <div className={cx('product-field')}>
                         <ul className={cx('product-list')}>
@@ -86,9 +126,9 @@ function Product() {
                         </ul>
                         <Pagination
                             productsPerPage={productsPerPage}
-                            totalProduct={productData.length}
+                            totalProduct={finalProduct.length}
                             currPageNum={currentPage}
-                            lastPageNum={productData.length / productsPerPage}
+                            lastPageNum={finalProduct.length / productsPerPage}
                             paginate={paginate}
                             prevPage={prevPage}
                             nextPage={nextPage}

@@ -27,7 +27,10 @@ function Pagination({ productsPerPage, totalProduct, currPageNum, lastPageNum, p
                         </NavLink>
                     </li>
                 ))}
-                <li className={num === lastPageNum ? cx('disabled') : ''} onClick={() => nextPage(num)}>
+                <li
+                    className={num === lastPageNum || lastPageNum < 2 ? cx('disabled') : ''}
+                    onClick={() => nextPage(num)}
+                >
                     {'>'}
                 </li>
             </ul>

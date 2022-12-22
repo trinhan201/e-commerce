@@ -1,20 +1,29 @@
-.filter-by-price,
-.filter-price-field {
+.filter-by-price {
     margin-top: 24px;
     font-size: 1.5rem;
+    border: 1px solid #cccccc;
+    padding: 12px;
 
     .filter-title {
         font-size: 1.8rem;
     }
-}
+    p {
+        margin: 8px 0;
+    }
 
-.price-selection {
-    width: fit-content;
-    margin-top: 8px;
-    transition: 0.5s all;
-    cursor: pointer;
+    .input-slider {
+        appearance: none;
+        width: 100%;
+        height: 8px;
+        border-radius: 20px;
+        background-color: var(--primary);
+    }
 
-    &:hover {
-        color: var(--primary);
+    .input-slider::-webkit-slider-thumb {
+        appearance: none;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background-color: var(--secondary);
     }
 }
