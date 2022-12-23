@@ -1,5 +1,5 @@
 import CategoryFilter from '~/components/Product/ProductFilter/CategoryFilter';
-import DiscountFilter from '~/components/Product/ProductFilter/DiscountFilter';
+import BrandFilter from '~/components/Product/ProductFilter/BrandFilter';
 import RatingFilter from '~/components/Product/ProductFilter/RatingFilter';
 import PriceFilter from '~/components/Product/ProductFilter/PriceFilter';
 import SearchFilterForm from '~/components/Product/ProductFilter/SearchFilterForm';
@@ -37,10 +37,10 @@ function FilterPanel({ onChange, filters }) {
         onChange(newFilters);
     };
 
-    const setDiscountValue = (discountValue) => {
+    const setBrandValue = (brandValue) => {
         const newFilters = {
             ...filters,
-            discount: discountValue,
+            brand: brandValue,
         };
         onChange(newFilters);
     };
@@ -50,7 +50,7 @@ function FilterPanel({ onChange, filters }) {
             <SearchFilterForm setSearchTerm={setSearchTermValue} />
             <PriceFilter setPriceValue={setPriceValue} />
             <CategoryFilter setCategoryValue={setCategoryValue} />
-            <DiscountFilter setDiscountValue={setDiscountValue} />
+            <BrandFilter setBrandValue={setBrandValue} />
             <RatingFilter setRatingValue={setRatingValue} />
         </>
     );

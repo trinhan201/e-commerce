@@ -24,7 +24,7 @@ function Product() {
         rating: 0,
         price: [0, 100],
         searchTerm: '',
-        discount: [],
+        brand: [],
     });
 
     //Product filter
@@ -66,7 +66,13 @@ function Product() {
         }
     };
 
-    console.log(filters.discount);
+    const filterByBrand = (array) => {
+        if (filters.brand.length > 0) {
+            return array.filter((item) => filters.brand.includes(item.productBrand));
+        } else {
+            return array;
+        }
+    };
 
     useEffect(() => {
         let result = productData;
@@ -74,6 +80,7 @@ function Product() {
         result = filterByRating(result);
         result = filterByPrice(result);
         result = filterBySearchTerm(result);
+        result = filterByBrand(result);
         setCurrentPage(1);
         setFinalProduct(result);
     }, [filters]);
@@ -113,30 +120,36 @@ function Product() {
                         <FilterPanel onChange={handleUpdateFilter} filters={filters} />
                     </div>
                     <div className={cx('product-field')}>
-                        <ul className={cx('product-list')}>
-                            {currentProducts.map((item) => (
-                                <ProductItem
-                                    key={item.id}
-                                    isSoldOut={item.isSoldOut}
-                                    img={item.productImg}
-                                    isTag={item.isTag}
-                                    tag={item.productTag}
-                                    discount={item.productDiscount}
-                                    fname={item.productName}
-                                    price={item.productPrice}
-                                    review={item.productReview}
+                        {currentProducts.length > 0 ? (
+                            <>
+                                <ul className={cx('product-list')}>
+                                    {currentProducts.map((item) => (
+                                        <ProductItem
+                                            key={item.id}
+                                            isSoldOut={item.isSoldOut}
+                                            img={item.productImg}
+                                            isTag={item.isTag}
+                                            tag={item.productTag}
+                                            discount={item.productDiscount}
+                                            fname={item.productName}
+                                            price={item.productPrice}
+                                            review={item.productReview}
+                                        />
+                                    ))}
+                                </ul>
+                                <Pagination
+                                    productsPerPage={productsPerPage}
+                                    totalProduct={finalProduct.length}
+                                    currPageNum={currentPage}
+                                    lastPageNum={finalProduct.length / productsPerPage}
+                                    paginate={paginate}
+                                    prevPage={prevPage}
+                                    nextPage={nextPage}
                                 />
-                            ))}
-                        </ul>
-                        <Pagination
-                            productsPerPage={productsPerPage}
-                            totalProduct={finalProduct.length}
-                            currPageNum={currentPage}
-                            lastPageNum={finalProduct.length / productsPerPage}
-                            paginate={paginate}
-                            prevPage={prevPage}
-                            nextPage={nextPage}
-                        />
+                            </>
+                        ) : (
+                            <div className={cx('product-search-empty')}>Sorry! No result found :{'('}</div>
+                        )}
                     </div>
                 </div>
             </div>

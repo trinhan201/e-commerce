@@ -13,6 +13,7 @@ const products = [
         isTag: true,
         productTag: 'New',
         productDiscount: 0,
+        productBrand: 'Alexander McQueen',
     },
     {
         id: 2,
@@ -28,6 +29,7 @@ const products = [
         isTag: true,
         productTag: 'SaleOff',
         productDiscount: 5,
+        productBrand: 'Bottega Veneta',
     },
     {
         id: 3,
@@ -43,6 +45,7 @@ const products = [
         isTag: true,
         productTag: 'New',
         productDiscount: 0,
+        productBrand: 'Prada Linea Rossa',
     },
     {
         id: 4,
@@ -58,6 +61,7 @@ const products = [
         isTag: true,
         productTag: 'SaleOff',
         productDiscount: 25,
+        productBrand: 'Prada Linea Rossa',
     },
     {
         id: 5,
@@ -73,6 +77,7 @@ const products = [
         isTag: true,
         productTag: 'SaleOff',
         productDiscount: 25,
+        productBrand: 'Prada Linea Rossa',
     },
     {
         id: 6,
@@ -88,6 +93,7 @@ const products = [
         isTag: false,
         productTag: '',
         productDiscount: 0,
+        productBrand: 'Caterpillar Safety',
     },
     {
         id: 7,
@@ -103,6 +109,7 @@ const products = [
         isTag: false,
         productTag: '',
         productDiscount: 0,
+        productBrand: 'Armani Exchange',
     },
     {
         id: 8,
@@ -118,6 +125,7 @@ const products = [
         isTag: true,
         productTag: 'New',
         productDiscount: 0,
+        productBrand: 'Caterpillar Safety',
     },
     {
         id: 9,
@@ -133,6 +141,7 @@ const products = [
         isTag: true,
         productTag: 'New',
         productDiscount: 0,
+        productBrand: 'Armani Exchange',
     },
     {
         id: 10,
@@ -148,6 +157,7 @@ const products = [
         isTag: false,
         productTag: '',
         productDiscount: 0,
+        productBrand: 'Caterpillar Safety',
     },
     {
         id: 11,
@@ -163,6 +173,7 @@ const products = [
         isTag: false,
         productTag: '',
         productDiscount: 0,
+        productBrand: 'Alexander McQueen',
     },
     {
         id: 12,
@@ -178,6 +189,7 @@ const products = [
         isTag: true,
         productTag: 'New',
         productDiscount: 0,
+        productBrand: 'Alexander McQueen',
     },
     {
         id: 13,
@@ -193,6 +205,7 @@ const products = [
         isTag: true,
         productTag: 'SaleOff',
         productDiscount: 10,
+        productBrand: 'Prada Linea Rossa',
     },
     {
         id: 14,
@@ -208,6 +221,7 @@ const products = [
         isTag: false,
         productTag: '',
         productDiscount: 0,
+        productBrand: 'Bottega Veneta',
     },
     {
         id: 15,
@@ -223,6 +237,7 @@ const products = [
         isTag: true,
         productTag: 'New',
         productDiscount: 0,
+        productBrand: 'Alexander McQueen',
     },
     {
         id: 16,
@@ -238,6 +253,7 @@ const products = [
         isTag: true,
         productTag: 'New',
         productDiscount: 0,
+        productBrand: 'Alexander McQueen',
     },
     {
         id: 17,
@@ -253,6 +269,7 @@ const products = [
         isTag: true,
         productTag: 'SaleOff',
         productDiscount: 5,
+        productBrand: 'Alexander McQueen',
     },
     {
         id: 18,
@@ -268,6 +285,7 @@ const products = [
         isTag: true,
         productTag: 'SaleOff',
         productDiscount: 15,
+        productBrand: 'Caterpillar Safety',
     },
     {
         id: 19,
@@ -283,6 +301,7 @@ const products = [
         isTag: true,
         productTag: 'SaleOff',
         productDiscount: 60,
+        productBrand: 'Caterpillar Safety',
     },
     {
         id: 20,
@@ -298,6 +317,7 @@ const products = [
         isTag: false,
         productTag: '',
         productDiscount: 0,
+        productBrand: 'Armani Exchange',
     },
     {
         id: 21,
@@ -313,6 +333,7 @@ const products = [
         isTag: false,
         productTag: '',
         productDiscount: 0,
+        productBrand: 'Bottega Veneta',
     },
     {
         id: 22,
@@ -328,6 +349,7 @@ const products = [
         isTag: true,
         productTag: 'SaleOff',
         productDiscount: 8,
+        productBrand: 'Prada Linea Rossa',
     },
     {
         id: 23,
@@ -343,6 +365,7 @@ const products = [
         isTag: false,
         productTag: '',
         productDiscount: 0,
+        productBrand: 'Armani Exchange',
     },
     {
         id: 24,
@@ -358,6 +381,7 @@ const products = [
         isTag: true,
         productTag: 'New',
         productDiscount: 0,
+        productBrand: 'Armani Exchange',
     },
 ];
 

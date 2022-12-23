@@ -6,7 +6,7 @@ const cx = classNames.bind(styles);
 function RatingFilter({ setRatingValue }) {
     return (
         <div className={cx('filter-by-rating')}>
-            <h4 className={cx('filter-title')}>Customer Review</h4>
+            <h4 className={cx('filter-title')}>Customer Reviews</h4>
             <div className={cx('filter-rating-field')}>
                 <div className={cx('rating-selection')} onClick={() => setRatingValue(5)}>
                     <ReactStars size={20} value={5} edit={false} />
