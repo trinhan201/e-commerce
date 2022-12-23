@@ -2,10 +2,18 @@ import CategoryFilter from '~/components/Product/ProductFilter/CategoryFilter';
 import DiscountFilter from '~/components/Product/ProductFilter/DiscountFilter';
 import RatingFilter from '~/components/Product/ProductFilter/RatingFilter';
 import PriceFilter from '~/components/Product/ProductFilter/PriceFilter';
+import SearchFilterForm from '~/components/Product/ProductFilter/SearchFilterForm';
 
 function FilterPanel({ onChange, filters }) {
+    const setSearchTermValue = (searchTermValue) => {
+        const newFilters = {
+            ...filters,
+            searchTerm: searchTermValue,
+        };
+        onChange(newFilters);
+    };
+
     const setPriceValue = (priceValue) => {
-        console.log(priceValue);
         const newFilters = {
             ...filters,
             price: priceValue,
@@ -29,11 +37,20 @@ function FilterPanel({ onChange, filters }) {
         onChange(newFilters);
     };
 
+    const setDiscountValue = (discountValue) => {
+        const newFilters = {
+            ...filters,
+            discount: discountValue,
+        };
+        onChange(newFilters);
+    };
+
     return (
         <>
+            <SearchFilterForm setSearchTerm={setSearchTermValue} />
             <PriceFilter setPriceValue={setPriceValue} />
             <CategoryFilter setCategoryValue={setCategoryValue} />
-            <DiscountFilter />
+            <DiscountFilter setDiscountValue={setDiscountValue} />
             <RatingFilter setRatingValue={setRatingValue} />
         </>
     );

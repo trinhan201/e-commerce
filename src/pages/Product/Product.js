@@ -9,7 +9,7 @@ import FilterPanel from '~/components/Product/ProductFilter/FilterPanel';
 
 import productData from '~/data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faFilter, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faFilter } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
 import config from '~/config';
 
@@ -22,7 +22,9 @@ function Product() {
     const [filters, setFilters] = useState({
         category: [],
         rating: 0,
-        price: 0,
+        price: [0, 100],
+        searchTerm: '',
+        discount: [],
     });
 
     //Product filter
@@ -49,18 +51,29 @@ function Product() {
     };
 
     const filterByPrice = (array) => {
-        if (filters.price > 0) {
-            return array.filter((item) => item.productPrice < filters.price);
+        if (filters.price) {
+            return array.filter((item) => item.productPrice > filters.price[0] && item.productPrice < filters.price[1]);
         } else {
             return array;
         }
     };
+
+    const filterBySearchTerm = (array) => {
+        if (filters.searchTerm.length > 0) {
+            return array.filter((item) => item.productName.includes(filters.searchTerm));
+        } else {
+            return array;
+        }
+    };
+
+    console.log(filters.discount);
 
     useEffect(() => {
         let result = productData;
         result = filterByCategory(result);
         result = filterByRating(result);
         result = filterByPrice(result);
+        result = filterBySearchTerm(result);
         setCurrentPage(1);
         setFinalProduct(result);
     }, [filters]);
@@ -96,15 +109,6 @@ function Product() {
                     <div className={showFilter ? cx('product-filter', 'show-filter') : cx('product-filter')}>
                         <div className={cx('filter-close-btn')} onClick={() => setShowFilter(false)}>
                             <FontAwesomeIcon icon={faArrowLeft} />
-                        </div>
-                        <div className={cx('filter-by-name')}>
-                            <h4 className={cx('filter-title')}>Search Here...</h4>
-                            <div className={cx('filter-input-field')}>
-                                <input type="text" placeholder="Search here..." />
-                                <Button className={cx('filter-input-btn')} primary small>
-                                    <FontAwesomeIcon icon={faSearch} />
-                                </Button>
-                            </div>
                         </div>
                         <FilterPanel onChange={handleUpdateFilter} filters={filters} />
                     </div>
