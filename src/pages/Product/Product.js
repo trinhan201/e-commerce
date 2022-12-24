@@ -28,8 +28,6 @@ function Product() {
         active: false,
     });
 
-    console.log(filters);
-
     //Product filter
     const handleUpdateFilter = (newFilters) => {
         setFilters((prev) => {
@@ -145,6 +143,7 @@ function Product() {
                                     {currentProducts.map((item) => (
                                         <ProductItem
                                             key={item.id}
+                                            id={item.id}
                                             isSoldOut={item.isSoldOut}
                                             img={item.productImg}
                                             isTag={item.isTag}

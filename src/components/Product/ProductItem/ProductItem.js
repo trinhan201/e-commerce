@@ -24,7 +24,7 @@ function ProductItem({ id, isSoldOut, img, isTag, tag, discount, fname, price, r
                     <span className={cx('product-tag')}></span>
                 )}
                 <div className={cx('to-product-detail')}>
-                    <Button primary to={config.routes.product}>
+                    <Button primary to={`/product/${id}`}>
                         <FontAwesomeIcon icon={faEye} />
                     </Button>
                 </div>

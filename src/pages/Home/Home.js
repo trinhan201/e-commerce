@@ -151,6 +151,7 @@ function Home() {
                             {productNew.slice(0, 8).map((item) => (
                                 <ProductItem
                                     key={item.id}
+                                    id={item.id}
                                     isSoldOut={item.isSoldOut}
                                     img={item.productImg}
                                     isTag={item.isTag}
