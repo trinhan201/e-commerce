@@ -25,7 +25,10 @@ function Product() {
         price: [0, 100],
         searchTerm: '',
         brand: [],
+        active: false,
     });
+
+    console.log(filters);
 
     //Product filter
     const handleUpdateFilter = (newFilters) => {
@@ -118,6 +121,22 @@ function Product() {
                             <FontAwesomeIcon icon={faArrowLeft} />
                         </div>
                         <FilterPanel onChange={handleUpdateFilter} filters={filters} />
+                        <Button
+                            primary
+                            className={cx('clear-filter-btn')}
+                            onClick={() =>
+                                setFilters({
+                                    category: [],
+                                    rating: 0,
+                                    price: [0, 100],
+                                    searchTerm: '',
+                                    brand: [],
+                                    active: false,
+                                })
+                            }
+                        >
+                            Clear filter
+                        </Button>
                     </div>
                     <div className={cx('product-field')}>
                         {currentProducts.length > 0 ? (

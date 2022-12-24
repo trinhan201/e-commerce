@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 import styles from './CategoryFilter.module.scss';
 
 const cx = classNames.bind(styles);
-function CategoryFilter({ setCategoryValue }) {
+function CategoryFilter({ setCategoryValue, filters }) {
     const categoryList = ['Men', 'Women', 'Kid'];
     const [categories, setCategories] = useState([]);
 
@@ -26,6 +26,10 @@ function CategoryFilter({ setCategoryValue }) {
     useEffect(() => {
         onCategoryChange(categories);
     }, [categories]);
+
+    useEffect(() => {
+        setCategories([]);
+    }, [filters.checked]);
 
     return (
         <div className={cx('filter-by-category')}>

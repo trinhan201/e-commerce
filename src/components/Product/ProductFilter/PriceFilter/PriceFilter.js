@@ -6,7 +6,7 @@ import styles from './PriceFilter.module.scss';
 import ReactSlider from 'react-slider';
 
 const cx = classNames.bind(styles);
-function PriceFilter({ setPriceValue }) {
+function PriceFilter({ setPriceValue, filters }) {
     const [minPrice, setMinPrice] = useState(0);
     const [maxPrice, setMaxPrice] = useState(100);
     const handleInput = (minPrice, maxPrice) => {
@@ -16,6 +16,11 @@ function PriceFilter({ setPriceValue }) {
     useEffect(() => {
         handleInput(minPrice, maxPrice);
     }, [minPrice, maxPrice]);
+
+    useEffect(() => {
+        setMinPrice(0);
+        setMaxPrice(100);
+    }, [filters.checked]);
 
     return (
         <div className={cx('filter-by-price')}>
@@ -27,6 +32,7 @@ function PriceFilter({ setPriceValue }) {
 
             <ReactSlider
                 defaultValue={[minPrice, maxPrice]}
+                value={[minPrice, maxPrice]}
                 className={cx('slider')}
                 trackClassName={cx('tracker')}
                 min={0}

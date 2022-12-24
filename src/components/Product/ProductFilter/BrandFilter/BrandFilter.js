@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 import styles from './BrandFilter.module.scss';
 
 const cx = classNames.bind(styles);
-function DiscountFilter({ setBrandValue }) {
+function DiscountFilter({ setBrandValue, filters }) {
     const brandList = [
         'Alexander McQueen',
         'Armani Exchange',
@@ -32,6 +32,10 @@ function DiscountFilter({ setBrandValue }) {
     useEffect(() => {
         onBrandChange(brands);
     }, [brands]);
+
+    useEffect(() => {
+        setBrands([]);
+    }, [filters.checked]);
 
     return (
         <div className={cx('filter-by-brand')}>

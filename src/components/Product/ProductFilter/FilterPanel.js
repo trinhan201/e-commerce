@@ -9,6 +9,7 @@ function FilterPanel({ onChange, filters }) {
         const newFilters = {
             ...filters,
             searchTerm: searchTermValue,
+            checked: true,
         };
         onChange(newFilters);
     };
@@ -17,6 +18,7 @@ function FilterPanel({ onChange, filters }) {
         const newFilters = {
             ...filters,
             price: priceValue,
+            checked: true,
         };
         onChange(newFilters);
     };
@@ -25,6 +27,7 @@ function FilterPanel({ onChange, filters }) {
         const newFilters = {
             ...filters,
             category: categoryValue,
+            checked: true,
         };
         onChange(newFilters);
     };
@@ -41,16 +44,17 @@ function FilterPanel({ onChange, filters }) {
         const newFilters = {
             ...filters,
             brand: brandValue,
+            checked: true,
         };
         onChange(newFilters);
     };
 
     return (
         <>
-            <SearchFilterForm setSearchTerm={setSearchTermValue} />
-            <PriceFilter setPriceValue={setPriceValue} />
-            <CategoryFilter setCategoryValue={setCategoryValue} />
-            <BrandFilter setBrandValue={setBrandValue} />
+            <SearchFilterForm setSearchTerm={setSearchTermValue} filters={filters} />
+            <PriceFilter setPriceValue={setPriceValue} filters={filters} />
+            <CategoryFilter setCategoryValue={setCategoryValue} filters={filters} />
+            <BrandFilter setBrandValue={setBrandValue} filters={filters} />
             <RatingFilter setRatingValue={setRatingValue} />
         </>
     );
