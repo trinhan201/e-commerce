@@ -1,17 +1,44 @@
+@import '../../GlobalStyles/mixin.scss';
+
+.product-detail-banner {
+    position: relative;
+    height: 350px;
+
+    .banner-mid {
+        background: url('../../../assets/img/product-banner.jpg') rgba($color: #000000, $alpha: 0.3) center / cover
+            no-repeat;
+        background-blend-mode: multiply;
+        height: 100%;
+    }
+}
+
 .product-detail-wrapper {
     display: flex;
-    margin: 72px 0;
+    margin-top: 72px;
+    margin-bottom: 48px;
+
+    @include Responsive(tablet) {
+        flex-direction: column;
+    }
+    @include Responsive(mobile) {
+        flex-direction: column;
+    }
 }
 
 .product-detail-img {
     flex: 1;
-    width: 400px;
-    height: 400px;
+    display: flex;
 
     img {
-        width: 100%;
-        height: 100%;
+        width: 400px;
+        height: 400px;
+        margin: auto;
         object-fit: contain;
+
+        @include Responsive(mobile) {
+            width: 300px;
+            height: 300px;
+        }
     }
 }
 
@@ -26,6 +53,12 @@
     .product-detail-price {
         font-size: 2rem;
         font-weight: 700;
+
+        span {
+            color: rgba($color: #000000, $alpha: 0.4);
+            text-decoration: line-through;
+            margin-right: 12px;
+        }
     }
 }
 
@@ -62,6 +95,50 @@
 .product-detail-name,
 .product-detail-desc,
 .product-detail-price,
+.product-detail-rating,
 .product-detail-qty {
     margin-bottom: 12px;
+}
+
+.product-detail-share {
+    margin-top: 32px;
+
+    p {
+        font-size: 1.4rem;
+    }
+}
+.share-list {
+    display: flex;
+    margin-top: 8px;
+    margin-left: -4px;
+
+    li {
+        width: 35px;
+        height: 35px;
+        font-size: 2.2rem;
+        margin: 0 4px;
+        cursor: pointer;
+
+        &:hover {
+            color: var(--secondary);
+            transition: 0.5s all;
+        }
+    }
+}
+
+.featured-product {
+    margin-top: 48px;
+    margin-bottom: 72px;
+
+    h1 {
+        font-size: 4.5rem;
+        font-weight: 400;
+        font-style: italic;
+        color: var(--primary);
+        margin-bottom: 32px;
+
+        @include Responsive(mobile) {
+            font-size: 2.5rem;
+        }
+    }
 }

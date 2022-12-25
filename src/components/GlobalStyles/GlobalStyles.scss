@@ -39,6 +39,7 @@ li {
     width: 90%;
     padding: 0 15px;
     margin: 0 auto;
+    overflow: hidden;
     @include Responsive(tablet) {
         width: 94%;
     }
@@ -82,4 +83,9 @@ li {
     span {
         padding: 0 8px;
     }
+}
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
 }
