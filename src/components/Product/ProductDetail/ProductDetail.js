@@ -14,16 +14,19 @@ import { NavLink } from 'react-router-dom';
 import config from '~/config';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGooglePlusG, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { useDispatch } from 'react-redux';
+import { addToCart, incrementByAmount } from '~/components/Cart/cartSystem';
 
 const cx = classNames.bind(styles);
 function ProductDetail() {
     const [productQty, setProductQty] = useState(1);
 
     const { id } = useParams();
-    const thisProduct = productData.find((item) => item.id === Number(id));
+    const thisProduct = productData.find((item) => item.id === parseInt(id, 10));
     const product5Star = productData.filter((item) => {
         return item.productReview === 5;
     });
+    const dispatch = useDispatch();
 
     const settings = {
         dots: true,
@@ -64,6 +67,11 @@ function ProductDetail() {
             },
         ],
     };
+
+    const handleSubmit = (product, quantity) => {
+        dispatch(incrementByAmount({ product, quantity }));
+    };
+
     return (
         <>
             <div className={cx('product-detail-banner')}>
@@ -81,7 +89,6 @@ function ProductDetail() {
                     <div className={cx('product-detail-info')}>
                         <h1 className={cx('product-detail-name')}>{thisProduct.productName}</h1>
                         <p className={cx('product-detail-desc')}>{thisProduct.productDesc}</p>
-                        {/* <p className={cx('product-detail-price')}>${thisProduct.productPrice}</p> */}
 
                         {thisProduct.productDiscount > 0 ? (
                             <p className={cx('product-detail-price')}>
@@ -97,7 +104,7 @@ function ProductDetail() {
                         </div>
                         <div className={cx('product-detail-qty')}>
                             <div
-                                className={productQty === 1 ? cx('qty-minus', 'disabled') : cx('qty-minus')}
+                                className={productQty <= 1 ? cx('qty-minus', 'disabled') : cx('qty-minus')}
                                 onClick={() => setProductQty(productQty - 1)}
                             >
                                 -
@@ -108,7 +115,9 @@ function ProductDetail() {
                             </div>
                         </div>
                         <div className={cx('product-detail-btn')}>
-                            <Button primary>ADD TO CART</Button>
+                            <Button primary onClick={() => handleSubmit(thisProduct, productQty)}>
+                                ADD TO CART
+                            </Button>
                             <Button className={cx('ml-15')} outline>
                                 BUY NOW
                             </Button>
@@ -148,6 +157,7 @@ function ProductDetail() {
                                     fname={item.productName}
                                     price={item.productPrice}
                                     review={item.productReview}
+                                    item={item}
                                 />
                             ))}
                         </Slider>

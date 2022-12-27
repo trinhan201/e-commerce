@@ -160,6 +160,7 @@ function Home() {
                                     fname={item.productName}
                                     price={item.productPrice}
                                     review={item.productReview}
+                                    item={item}
                                 />
                             ))}
                         </ul>

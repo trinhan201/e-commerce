@@ -5,7 +5,7 @@ import Home from '~/pages/Home/Home';
 import Product from '~/pages/Product/Product';
 import About from '~/pages/About/About';
 import Contact from '~/pages/Contact/Contact';
-import Cart from '~/pages/Cart/Cart';
+import Cart from '~/components/Cart/Cart';
 import ProductDetail from '~/components/Product/ProductDetail';
 
 // Public routes
