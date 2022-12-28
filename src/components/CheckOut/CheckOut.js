@@ -7,13 +7,25 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { visa, paypal } from '~/assets/img';
 import Button from '../Button';
 
+import { useSelector, useDispatch } from 'react-redux';
+import { addToCart, removeItem, decrementAnItem, updateQuantity } from '~/components/Cart/cartSystem';
+
 const cx = classNames.bind(styles);
 function CheckOut({ setCheckOutForm }) {
     const [paymentActive, setPaymentActive] = useState('visa');
+    const cartProducts = useSelector((state) => state.cart);
+    const dispatch = useDispatch();
+    const shippingFee = 1.0;
 
     const onUpdateActiveLink = (value) => {
         setPaymentActive(value);
     };
+
+    const totalPrice = cartProducts.reduce((total, item) => {
+        const price = item.productPrice - item.productPrice * (item.productDiscount / 100);
+        return total + item.quantity * price;
+    }, 0);
+
     return (
         <div className={cx('modal')} onClick={() => setCheckOutForm(false)}>
             <div className={cx('modal-container')} onClick={(e) => e.stopPropagation()}>
@@ -71,7 +83,59 @@ function CheckOut({ setCheckOutForm }) {
                         BUY
                     </Button>
                 </div>
-                <div className={cx('right-side')}></div>
+                <div className={cx('right-side')}>
+                    <h2>Order summary</h2>
+                    <div className={cx('cart-list')}>
+                        <div className={cx('cart-item-header')}>
+                            <div className={cx('item-name-heading')}>Product</div>
+                            <div className={cx('item-price-heading')}>Price</div>
+                            <div className={cx('item-qty-heading')}>Quantity</div>
+                            <div className={cx('item-total-heading')}>Total</div>
+                        </div>
+                        {cartProducts.map((item, index) => {
+                            const quantity = item.quantity;
+                            const price = item.productPrice - item.productPrice * (item.productDiscount / 100);
+                            return (
+                                <div key={index} className={cx('cart-item')}>
+                                    <div className={cx('section-1')}>
+                                        <div className={cx('item-img')}>
+                                            <img src={item.productImg} alt="" />
+                                        </div>
+                                        <div className={cx('item-name')}>{item.productName}</div>
+                                    </div>
+                                    <div className={cx('section-2')}>
+                                        <div className={cx('item-price')}>${Math.round(price * 100) / 100}</div>
+                                        <div className={cx('item-qty')}>
+                                            <p
+                                                className={cx('qty-num')}
+                                                onChange={() => dispatch(updateQuantity({ item, quantity }))}
+                                            >
+                                                {quantity}
+                                            </p>
+                                        </div>
+                                        <div className={cx('item-total-price')}>
+                                            ${Math.round(price * quantity * 100) / 100}
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                    <div className={cx('bill-order')}>
+                        <div className={cx('total-bill-info')}>
+                            <span>Sub Total:</span>
+                            <span>${totalPrice}</span>
+                        </div>
+                        <div className={cx('total-bill-info')}>
+                            <span>Shipping fee:</span>
+                            <span>${shippingFee}</span>
+                        </div>
+                        <div className={cx('total-bill-info')}>
+                            <span>Total:</span>
+                            <span>${totalPrice + shippingFee}</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
