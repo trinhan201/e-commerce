@@ -65,11 +65,11 @@
 }
 
 .item-qty-heading {
-    margin-left: 50px;
+    margin-left: 40px;
 }
 
 .item-total-heading {
-    margin-left: 52px;
+    margin-left: 73px;
 }
 
 .cart-item {
@@ -209,6 +209,16 @@
 
     .check-out-btn {
         margin-bottom: 12px;
+    }
+
+    .shop-more-btn {
+        line-height: 1.1;
+    }
+
+    .check-out-btn,
+    .shop-more-btn {
+        font-size: 1.4rem;
+        font-weight: 400;
     }
 }
 

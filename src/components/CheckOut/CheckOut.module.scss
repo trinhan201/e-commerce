@@ -1,0 +1,139 @@
+@import '../GlobalStyles/mixin.scss';
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.modal-container {
+    position: relative;
+    display: flex;
+    background-color: #ffffff;
+    width: 1200px;
+    height: fit-content;
+    border-radius: 4px;
+    animation: modalFadeIn ease 0.5s;
+
+    @include Responsive(mobile) {
+        flex-direction: column-reverse;
+    }
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    line-height: 0;
+    padding: 16px;
+    font-size: 2.2rem;
+    opacity: 0.7;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.left-side {
+    flex: 1;
+    background-color: #131917;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+.checkout-info {
+    padding: 20px;
+
+    h4 {
+        font-size: 1.4rem;
+        color: #ffffff;
+    }
+}
+
+.payment-methods {
+    margin-top: 12px;
+
+    p {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #ffffff;
+    }
+}
+
+.payment-methods-field {
+    display: flex;
+    column-gap: 12px;
+    margin-top: 12px;
+}
+
+.payment-methods-selection {
+    width: 64px;
+    height: 42px;
+    opacity: 0.5;
+    cursor: pointer;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &:hover {
+        opacity: 1;
+        border-bottom: 2px solid #ffffff;
+    }
+}
+
+.activePayment {
+    opacity: 1;
+    border-bottom: 2px solid #ffffff;
+}
+
+.checkout-form {
+    margin-top: 18px;
+}
+
+.form-checkout-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+
+    label {
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 1.3rem;
+        color: var(--secondary);
+    }
+
+    input {
+        padding: 8px 0;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #ffffff;
+        background-color: transparent;
+    }
+
+    input::placeholder {
+        color: #ffffff;
+    }
+}
+
+.order-btn {
+    width: 100%;
+    font-weight: 600;
+    border-top-right-radius: unset;
+    border-bottom-right-radius: unset;
+    border-top-left-radius: unset;
+}
+
+.right-side {
+    flex: 3;
+}

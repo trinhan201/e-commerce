@@ -5,6 +5,7 @@ import sliderBanner2 from './banner2.jpg';
 import sliderBanner3 from './banner3.jpg';
 import sliderBanner4 from './banner4.jpg';
 import bannerMid from './banner-mid.jpg';
-import product from './product.jpg';
+import visa from './visa.png';
+import paypal from './paypal.png';
 
-export { shoppingCart, about, sliderBanner1, sliderBanner2, sliderBanner3, sliderBanner4, bannerMid, product };
+export { shoppingCart, about, sliderBanner1, sliderBanner2, sliderBanner3, sliderBanner4, bannerMid, visa, paypal };

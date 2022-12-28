@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Cart.module.scss';
 
@@ -11,9 +12,12 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart, removeItem, decrementAnItem, updateQuantity } from './cartSystem';
+import CheckOut from '../CheckOut';
 
 const cx = classNames.bind(styles);
 function Cart() {
+    const [checkOutForm, setCheckOutForm] = useState(false);
+
     const cartProducts = useSelector((state) => state.cart);
     const dispatch = useDispatch();
 
@@ -118,16 +122,17 @@ function Cart() {
                             Total: <span>${Math.round(totalPrice * 100) / 100}</span>
                         </div>
                         <div className={cx('bill-actions')}>
-                            <Button className={cx('check-out-btn')} to={config.routes.product} primary>
+                            <Button className={cx('check-out-btn')} onClick={() => setCheckOutForm(true)} primary>
                                 CHECK OUT
                             </Button>
-                            <Button to={config.routes.product} primary>
+                            <Button className={cx('shop-more-btn')} to={config.routes.product} primary>
                                 SHOP MORE
                             </Button>
                         </div>
                     </div>
                 </div>
             )}
+            {checkOutForm && <CheckOut setCheckOutForm={setCheckOutForm} />}
         </div>
     );
 }
