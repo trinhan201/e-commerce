@@ -89,3 +89,13 @@ li {
     opacity: 0.5;
     pointer-events: none;
 }
+
+@include Responsive(mobile) {
+    .Toastify__toast-container {
+        bottom: 12px;
+        padding: 0 24px;
+    }
+    .Toastify__toast {
+        border-radius: 4px;
+    }
+}

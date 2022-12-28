@@ -133,7 +133,10 @@
 
 .item-total-price,
 .item-price {
-    margin: 0 24px;
+    display: flex;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
 }
 
 .item-qty {
@@ -142,17 +145,23 @@
 }
 
 .qty-minus,
-.qty-plus {
+.qty-plus,
+.qty-num {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
     width: 30px;
     height: 30px;
+}
+
+.qty-minus,
+.qty-plus {
+    font-size: 2rem;
     border: 1px solid #cccccc;
     border-radius: 4px;
     margin: 0 12px;
     cursor: pointer;
+    user-select: none;
 
     &:hover {
         background-color: var(--secondary);

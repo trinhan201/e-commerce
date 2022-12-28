@@ -10,6 +10,7 @@ import Search from '~/components/Search';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBagShopping, faBars, faMagnifyingGlass, faUser, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faMoon } from '@fortawesome/free-regular-svg-icons';
+import { useSelector } from 'react-redux';
 
 const cx = classNames.bind(styles);
 function Header() {
@@ -17,6 +18,12 @@ function Header() {
     const [modalShowForm, setModalShowForm] = useState(false);
     const [modalShowSearch, setModalShowSearch] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+
+    const cartProducts = useSelector((state) => state.cart);
+
+    const totalItems = cartProducts.reduce((total, product) => {
+        return total + product.quantity;
+    }, 0);
 
     useEffect(() => {
         modalShowForm && (document.body.style.overflow = 'hidden');
@@ -65,6 +72,7 @@ function Header() {
                         <NavLink to={config.routes.cart}>
                             <FontAwesomeIcon icon={faBagShopping} />
                         </NavLink>
+                        <p className={cx('qty-in-cart')}>{totalItems}</p>
                     </div>
                 </div>
             </div>

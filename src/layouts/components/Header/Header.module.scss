@@ -74,6 +74,7 @@
 }
 
 .cart-btn {
+    position: relative;
     display: flex;
     background-color: #fef1f4;
     border: none;
@@ -83,6 +84,29 @@
         padding: 12px;
         line-height: 0;
         margin: auto;
+    }
+
+    .qty-in-cart {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        right: -4px;
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #ffffff;
+        padding: 2px;
+        background-color: #dc2626;
+        min-width: 20px;
+        height: 20px;
+        border-radius: 50%;
+
+        @include Responsive(mobile) {
+            font-size: 1.2rem;
+            min-width: 16px;
+            height: 16px;
+        }
     }
 }
 

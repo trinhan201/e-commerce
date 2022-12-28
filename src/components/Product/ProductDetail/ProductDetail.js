@@ -9,13 +9,15 @@ import ProductItem from '../ProductItem';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { NavLink } from 'react-router-dom';
 import config from '~/config';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGooglePlusG, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { useDispatch } from 'react-redux';
-import { addToCart, incrementByAmount } from '~/components/Cart/cartSystem';
+import { incrementByAmount } from '~/components/Cart/cartSystem';
 
 const cx = classNames.bind(styles);
 function ProductDetail() {
@@ -27,6 +29,17 @@ function ProductDetail() {
         return item.productReview === 5;
     });
     const dispatch = useDispatch();
+
+    const notify = () =>
+        toast.success('Add to cart successfully!', {
+            position: 'bottom-right',
+            autoClose: 1500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'colored',
+        });
 
     const settings = {
         dots: true,
@@ -70,6 +83,7 @@ function ProductDetail() {
 
     const handleSubmit = (product, quantity) => {
         dispatch(incrementByAmount({ product, quantity }));
+        notify();
     };
 
     return (
@@ -93,8 +107,11 @@ function ProductDetail() {
                         {thisProduct.productDiscount > 0 ? (
                             <p className={cx('product-detail-price')}>
                                 <span>${thisProduct.productPrice}</span>$
-                                {thisProduct.productPrice -
-                                    Math.round(thisProduct.productPrice * (thisProduct.productDiscount / 100))}
+                                {Math.round(
+                                    (thisProduct.productPrice -
+                                        thisProduct.productPrice * (thisProduct.productDiscount / 100)) *
+                                        100,
+                                ) / 100}
                             </p>
                         ) : (
                             <p className={cx('product-detail-price')}>${thisProduct.productPrice}</p>

@@ -76,6 +76,7 @@
         border: 1px solid #cccccc;
         border-radius: 8px;
         cursor: pointer;
+        user-select: none;
 
         &:hover {
             color: #ffffff;
