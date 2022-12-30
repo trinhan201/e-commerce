@@ -130,6 +130,7 @@ function Header() {
                     >
                         <li className={cx('nav-item')}>
                             <NavLink
+                                onClick={() => setToggleNav(!toggleNav)}
                                 className={({ isActive }) => (isActive ? cx('nav-link', 'active') : cx('nav-link'))}
                                 to={config.routes.home}
                             >
@@ -138,6 +139,7 @@ function Header() {
                         </li>
                         <li className={cx('nav-item')}>
                             <NavLink
+                                onClick={() => setToggleNav(!toggleNav)}
                                 className={({ isActive }) => (isActive ? cx('nav-link', 'active') : cx('nav-link'))}
                                 to={config.routes.product}
                             >
@@ -146,6 +148,7 @@ function Header() {
                         </li>
                         <li className={cx('nav-item')}>
                             <NavLink
+                                onClick={() => setToggleNav(!toggleNav)}
                                 className={({ isActive }) => (isActive ? cx('nav-link', 'active') : cx('nav-link'))}
                                 to={config.routes.about}
                             >
@@ -154,6 +157,7 @@ function Header() {
                         </li>
                         <li className={cx('nav-item')}>
                             <NavLink
+                                onClick={() => setToggleNav(!toggleNav)}
                                 className={({ isActive }) => (isActive ? cx('nav-link', 'active') : cx('nav-link'))}
                                 to={config.routes.contact}
                             >

@@ -36,6 +36,7 @@ function FilterPanel({ onChange, filters }) {
         const newFilters = {
             ...filters,
             rating: ratingValue,
+            checked: true,
         };
         onChange(newFilters);
     };
@@ -55,7 +56,7 @@ function FilterPanel({ onChange, filters }) {
             <PriceFilter setPriceValue={setPriceValue} filters={filters} />
             <CategoryFilter setCategoryValue={setCategoryValue} filters={filters} />
             <BrandFilter setBrandValue={setBrandValue} filters={filters} />
-            <RatingFilter setRatingValue={setRatingValue} />
+            <RatingFilter setRatingValue={setRatingValue} filters={filters} />
         </>
     );
 }

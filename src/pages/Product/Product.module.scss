@@ -49,12 +49,9 @@
         box-shadow: 0 15px 10px rgba($color: #000000, $alpha: 0.3);
         transform: translateX(-100%);
         transition: transform ease 0.5s;
+        overflow-x: hidden;
+        overflow-y: auto;
         z-index: 1000;
-
-        &:hover {
-            overflow-x: hidden;
-            overflow-y: auto;
-        }
     }
 
     @include Responsive(mobile) {
@@ -68,12 +65,9 @@
         box-shadow: 0 15px 10px rgba($color: #000000, $alpha: 0.3);
         transform: translateX(-100%);
         transition: transform ease 0.5s;
+        overflow-x: hidden;
+        overflow-y: auto;
         z-index: 1000;
-
-        &:hover {
-            overflow-x: hidden;
-            overflow-y: auto;
-        }
     }
 }
 

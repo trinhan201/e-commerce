@@ -12,6 +12,10 @@
     width: fit-content;
     display: flex;
     align-items: center;
+    background-color: #f4f4f4;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-bottom: 4px;
     cursor: pointer;
 
     span {
@@ -21,4 +25,10 @@
         }
         cursor: pointer !important;
     }
+}
+
+.active-rating {
+    color: #5ba4b0;
+    background-color: #e6f4f5;
+    border: 1px solid #5ba4b0;
 }
