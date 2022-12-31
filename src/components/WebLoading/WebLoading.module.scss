@@ -1,0 +1,27 @@
+@import '../GlobalStyles/mixin.scss';
+
+.loading-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.loading-img {
+    margin-bottom: 64px;
+    width: 128px;
+    height: 128px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    @include Responsive(mobile) {
+        width: 92px;
+        height: 92px;
+    }
+}
